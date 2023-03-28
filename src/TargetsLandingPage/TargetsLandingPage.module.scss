@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "Circular Std Medium";
+  src: url("../fonts/CircularStd-Medium.otf") format("otf"),
+    url("../fonts/CircularStd-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "Circular Std Book";
+  src: url("../fonts/CircularStd-Book.ttf") format("ttf"),
+    url("../fonts/CircularStd-Book.woff") format("woff");
+}
+
+.description {
+  margin-top: 0.25rem;
+  width: 329px;
+  text-align: center;
+  word-wrap: break-word;
+  font-family: "Circular Std Book", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.125rem;
+  letter-spacing: 0.015625rem;
+  cursor: text;
+}
+
+.icon {
+  margin-bottom: 2rem;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin: 10% auto;
+}
+
+.DefinedTargetsHeader {
+  font-family: "Circular Std Medium", sans-serif;
+  font-size: 1.125rem;
+  font-weight: lighter;
+  letter-spacing: 0.01125rem;
+  line-height: 1.5rem;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  cursor: text;
+}
