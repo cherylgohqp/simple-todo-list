@@ -5,6 +5,8 @@ import {useNavigate} from "react-router-dom";
 import { ReactComponent as CaretDownIcon } from "./caret_down.svg";
 import {DropDown} from "../MenuDropDown/DropDown";
 import options from "../MenuDropDown/options";
+import Modal from "../MenuDropDown/Modal";
+import "../MenuDropDown/Modal.scss";
 
 interface Category{
   name: string;
@@ -15,12 +17,21 @@ interface Category{
 
 // export const AddTargetSection = () => {
   // const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  
+
 export const AddTargetSection: React.FC = (): JSX.Element => {
   const navigate = useNavigate();
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
   const [selectTargetType, setselectTargetType] = useState<string>("");
-  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // const openModal = () => {
+  //   setIsModalOpen(true);
+  // };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   // function getTargetOptions () {
     
   // }
@@ -61,9 +72,8 @@ export const AddTargetSection: React.FC = (): JSX.Element => {
      */
     const targetTypeSelection = (targetType: string): void => {
       setselectTargetType(targetType);
+      setIsModalOpen(true);
     };
-  
-
 
   return (
     <div>
@@ -82,8 +92,20 @@ export const AddTargetSection: React.FC = (): JSX.Element => {
           toggleDropDown={(): void => toggleDropDown()}
           targetTypeSelection={targetTypeSelection}
         />
-      )}
+        )
+      }
     </button>
+      {selectTargetType==='Construction Cost' && (
+        <Modal title="My Modal" onClose={closeModal}>
+        <p>This is the modal content!</p>
+      </Modal>
+          // <div className="modal-overlay">
+          //     <div className="modal-box">
+          //     <h2>Dialog Box 1</h2>
+          //     <p>This is the content of dialog box 1.</p>
+          //   </div>
+          // </div>
+        )}
         </div>
       </div>
     </div>

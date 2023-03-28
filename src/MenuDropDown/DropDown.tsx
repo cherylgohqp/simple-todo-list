@@ -15,7 +15,6 @@ export const DropDown: React.FC<DropDownProps> = ({
   targetTypeSelection,
 }: DropDownProps): JSX.Element => {
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
-  const [isOpen, setIsOpen] = useState(false); //for the modal
   /**
    * Handle passing the target type selected
    * back to the parent component
@@ -23,7 +22,7 @@ export const DropDown: React.FC<DropDownProps> = ({
    * @param targetType  The selected target Type
    */
   const onClickHandler = (targetType: string): void => {
-    // targetTypeSelection(targetType); //TO CHANGE TO HANDLE THE OPENING OF MODAL
+    targetTypeSelection(targetType); //for modalheader, since modalheader===targettype 
     console.log(`clicked on ${targetType}`)
   };
 
