@@ -24,9 +24,9 @@ export const AddTargetSection: React.FC = (): JSX.Element => {
   const [selectTargetType, setselectTargetType] = useState<string>("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // const openModal = () => {
-  //   setIsModalOpen(true);
-  // };
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -72,7 +72,8 @@ export const AddTargetSection: React.FC = (): JSX.Element => {
      */
     const targetTypeSelection = (targetType: string): void => {
       setselectTargetType(targetType);
-      setIsModalOpen(true);
+      openModal();
+      console.log(isModalOpen);
     };
 
   return (
@@ -94,8 +95,7 @@ export const AddTargetSection: React.FC = (): JSX.Element => {
         />
         )
       }
-    </button>
-      {selectTargetType==='Construction Cost' && (
+      {selectTargetType==='Construction Cost' && isModalOpen && (
         <Modal title="My Modal" onClose={closeModal}>
         <p>This is the modal content!</p>
       </Modal>
@@ -106,6 +106,7 @@ export const AddTargetSection: React.FC = (): JSX.Element => {
           //   </div>
           // </div>
         )}
+    </button>
         </div>
       </div>
     </div>
