@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "Circular Std Medium";
+  src: url("../fonts/CircularStd-Medium.otf") format("otf"),
+    url("../fonts/CircularStd-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Circular Std Book";
+  src: url("../fonts/CircularStd-Book.ttf") format("ttf"),
+    url("../fonts/CircularStd-Book.woff") format("woff");
+}
+
 .modal-overlay {
   z-index: 9999;
   width: 100%;
@@ -9,19 +21,49 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: default;
+  // padding: 32px;
 }
 
 .modal-box {
   display: flex;
   flex-direction: column;
   background: white;
-  width: 70%;
-  height: 70%;
-  padding: 1rem;
+  width: 45%;
+  height: 40%;
   border-radius: 8px;
   box-shadow: -9px 0px 52px rgba(0, 0, 0, 0.075),
     9px 9px 52px rgba(0, 0, 0, 0.075);
   min-width: 150px;
   max-height: calc(100vh - 40px);
   z-index: 1;
+  cursor: default;
+}
+
+.modal-header {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+  // padding-bottom: -10px;
+  font-family: "Circular Std Book", sans-serif;
+  font-size: 0.775rem;
+  font-weight: 450;
+  line-height: 1.125rem;
+  letter-spacing: 0.015625rem;
+  box-shadow: inset 0px -1px 0px #e1e1e1;
+}
+
+.close-button {
+  cursor: pointer;
+  position: relative;
+  padding: 24px;
+  background-color: transparent;
+  border: none;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }

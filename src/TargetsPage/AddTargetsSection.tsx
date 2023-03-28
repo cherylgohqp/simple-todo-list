@@ -32,6 +32,7 @@ export const AddTargetSection: React.FC = (): JSX.Element => {
     setIsModalOpen(false);
   };
 
+ 
   // function getTargetOptions () {
     
   // }
@@ -73,15 +74,46 @@ export const AddTargetSection: React.FC = (): JSX.Element => {
     const targetTypeSelection = (targetType: string): void => {
       setselectTargetType(targetType);
       openModal();
-      console.log(isModalOpen);
     };
+    const modalRendered = () => {
+      switch(selectTargetType){
+        case "Construction Cost":
+          return <Modal title={selectTargetType} onClose={closeModal}>
+          <p>This is the Construction Cost content!</p>
+        </Modal>;
+
+        case "Construction Time":
+          return <Modal title={selectTargetType} onClose={closeModal}>
+          <p>This is the Construction Time content!</p>
+        </Modal>;
+
+        case "Floor Efficiency":
+          return <Modal title={selectTargetType} onClose={closeModal}>
+          <p>This is the Floor Efficiency content!</p>
+        </Modal>;
+
+        case "No. of Apartments":
+          return <Modal title={selectTargetType} onClose={closeModal}>
+          <p>This is the No. of Apartments content!</p>
+        </Modal>;
+
+        case "Apartment Type Distribution":
+          return <Modal title={selectTargetType} onClose={closeModal}>
+          <p>This is the Apartment Type Distribution content!</p>
+        </Modal>;
+      }
+    };
+
+
 
   return (
     <div>
       <div>
         <div className={classes["button-spacing"]}>
         {/* <button className={classes.button} onClick={()=> navigate("/buttonClicked")}> */}
-        <button className={classes.button} onClick={()=> toggleDropDown()}>
+        <button className={classes.button} onClick={()=> toggleDropDown()} onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
+          dismissHandler(e)
+        }>
       Add Target
       {/* <span className={classes.caretDownIcon}> </span> */}
       {/* <img src={caretDownIcon} className={classes.caretDownIcon_} /> */}
@@ -93,19 +125,16 @@ export const AddTargetSection: React.FC = (): JSX.Element => {
           toggleDropDown={(): void => toggleDropDown()}
           targetTypeSelection={targetTypeSelection}
         />
-        )
-      }
-      {selectTargetType==='Construction Cost' && isModalOpen && (
-        <Modal title="My Modal" onClose={closeModal}>
-        <p>This is the modal content!</p>
-      </Modal>
-          // <div className="modal-overlay">
-          //     <div className="modal-box">
-          //     <h2>Dialog Box 1</h2>
-          //     <p>This is the content of dialog box 1.</p>
-          //   </div>
-          // </div>
         )}
+        {isModalOpen && (<div>{modalRendered()}</div>)}
+      {/* {selectTargetType==='Construction Cost' && isModalOpen && (
+        <Modal title={selectTargetType} onClose={closeModal}>
+        <p>This is the modal content!</p>
+      </Modal>)}
+      {selectTargetType==='Construction Time' && isModalOpen && (
+        <Modal title={selectTargetType} onClose={closeModal}>
+        <p>This is the modal content!</p>
+      </Modal>)} */}
     </button>
         </div>
       </div>
