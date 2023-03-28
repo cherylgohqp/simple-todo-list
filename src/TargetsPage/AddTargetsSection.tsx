@@ -79,27 +79,27 @@ export const AddTargetSection: React.FC = (): JSX.Element => {
       switch(selectTargetType){
         case "Construction Cost":
           return <Modal title={selectTargetType} onClose={closeModal}>
-          <p>This is the Construction Cost content!</p>
+          <p>Enter the amount you would like to invest on construction.</p>
         </Modal>;
 
         case "Construction Time":
           return <Modal title={selectTargetType} onClose={closeModal}>
-          <p>This is the Construction Time content!</p>
+          <p>Enter the estimate amount of time it takes to build.</p>
         </Modal>;
 
         case "Floor Efficiency":
           return <Modal title={selectTargetType} onClose={closeModal}>
-          <p>This is the Floor Efficiency content!</p>
+          <p>Optimise your floor for maximum efficiency.</p>
         </Modal>;
 
         case "No. of Apartments":
           return <Modal title={selectTargetType} onClose={closeModal}>
-          <p>This is the No. of Apartments content!</p>
+          <p>Enter total number of apartments that would required for this project.</p>
         </Modal>;
 
         case "Apartment Type Distribution":
           return <Modal title={selectTargetType} onClose={closeModal}>
-          <p>This is the Apartment Type Distribution content!</p>
+          <p>Enter apartment type distribution targets for this project.</p>
         </Modal>;
       }
     };
