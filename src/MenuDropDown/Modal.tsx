@@ -1,5 +1,6 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import "./Modal.scss";
+// import { ReactComponent as Cross } from "./caret_down.svg";
 
 interface ModalProps {
   title: string;
