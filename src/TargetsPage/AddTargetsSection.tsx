@@ -126,16 +126,16 @@ export const AddTargetSection: React.FC = (): JSX.Element => {
           targetTypeSelection={targetTypeSelection}
         />
         )}
-        {isModalOpen && (<div>{modalRendered()}</div>)}
       {/* {selectTargetType==='Construction Cost' && isModalOpen && (
         <Modal title={selectTargetType} onClose={closeModal}>
         <p>This is the modal content!</p>
-      </Modal>)}
-      {selectTargetType==='Construction Time' && isModalOpen && (
-        <Modal title={selectTargetType} onClose={closeModal}>
-        <p>This is the modal content!</p>
-      </Modal>)} */}
+        </Modal>)}
+        {selectTargetType==='Construction Time' && isModalOpen && (
+          <Modal title={selectTargetType} onClose={closeModal}>
+          <p>This is the modal content!</p>
+        </Modal>)} */}
     </button>
+        {isModalOpen && (<div>{modalRendered()}</div>)}
         </div>
       </div>
     </div>
