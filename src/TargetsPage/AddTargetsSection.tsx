@@ -8,18 +8,13 @@ import options from "../MenuDropDown/options";
 import Modal from "../MenuDropDown/Modal";
 import "../MenuDropDown/Modal.scss";
 
-interface InputFieldProps{
-  suffix: string;
-  onSave: (value: string) => void;
-}
-
 //REFERENCING src\pages\target\components\AddTargetSection.tsx FROM ENVISION REPO
 
 // export const AddTargetSection = () => {
   // const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
 export const AddTargetSection: React.FC = (): JSX.Element => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
   const [selectTargetType, setselectTargetType] = useState<string>("");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -34,10 +29,16 @@ export const AddTargetSection: React.FC = (): JSX.Element => {
     setIsModalOpen(false);
   };
 
-  const handleSave = () => {
-    setHeader('Hello');
-    setValue('123');
+
+  //for modal input fields
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>)=>{
+    setValue(event.target.value);
   }
+
+  const handleSave = () => {
+  setHeader(selectTargetType); 
+  }
+
   // function getTargetOptions () {
     
   // }
@@ -83,9 +84,9 @@ export const AddTargetSection: React.FC = (): JSX.Element => {
     const modalRendered = () => {
       switch(selectTargetType){
         case "Construction Cost":
-          return <Modal title={selectTargetType} value='testing' onClose={closeModal} onSave={handleSave}>
+          return <Modal title={selectTargetType} value={value} onClose={closeModal} onSave={handleSave}>
           <p>Enter the amount you would like to invest on construction.</p>
-          <input/>
+          <input className={classes.construction_cost_input} onChange={handleChange}/>
         </Modal>;
 
         case "Construction Time":

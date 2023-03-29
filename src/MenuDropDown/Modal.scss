@@ -30,7 +30,7 @@
   flex-direction: column;
   background: white;
   width: 45%;
-  height: 40%;
+  height: auto;
   border-radius: 8px;
   box-shadow: -9px 0px 52px rgba(0, 0, 0, 0.075),
     9px 9px 52px rgba(0, 0, 0, 0.075);
@@ -64,7 +64,7 @@
   height: 24px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .modal-body {

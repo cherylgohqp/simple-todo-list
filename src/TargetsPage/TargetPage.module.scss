@@ -60,6 +60,27 @@
   margin-left: 8px;
 }
 
+.construction_cost_input {
+  border: 1px solid #c3c3c3;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 12px 20px;
+  // margin: 8px 0;
+  min-height: 24px;
+  width: 100%;
+  color: #232323;
+  background-color: transparent;
+  transition-property: color;
+  transition-duration: 200ms;
+  cursor: text;
+}
+
+.construction_cost_input:focus {
+  outline: none;
+  border-color: #1c96a3;
+  box-shadow: 0 0 4px #23b4c3;
+}
+
 //below gives the chevron down icon instead
 // .caretDownIcon {
 //   margin-left: 8px;
