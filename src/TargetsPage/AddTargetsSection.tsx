@@ -86,27 +86,31 @@ export const AddTargetSection: React.FC = (): JSX.Element => {
         case "Construction Cost":
           return <Modal title={selectTargetType} value={value} onClose={closeModal} onSave={handleSave}>
           <p>Enter the amount you would like to invest on construction.</p>
-          <input className={classes.construction_cost_input} onChange={handleChange}/>
+          <input className={classes.modal_input} onChange={handleChange}/>
         </Modal>;
 
         case "Construction Time":
-          return <Modal title={selectTargetType} value='testing' onClose={closeModal} onSave={handleSave}>
+          return <Modal title={selectTargetType} value={value} onClose={closeModal} onSave={handleSave}>
           <p>Enter the estimate amount of time it takes to build.</p>
+          <input className={classes.modal_input} onChange={handleChange}/>
         </Modal>;
 
         case "Floor Efficiency":
-          return <Modal title={selectTargetType} value='testing' onClose={closeModal} onSave={handleSave}>
+          return <Modal title={selectTargetType} value={value} onClose={closeModal} onSave={handleSave}>
           <p>Optimise your floor for maximum efficiency.</p>
+          <input className={classes.modal_input} onChange={handleChange}/>
         </Modal>;
 
         case "No. of Apartments":
-          return <Modal title={selectTargetType} value='testing' onClose={closeModal} onSave={handleSave}>
+          return <Modal title={selectTargetType} value={value} onClose={closeModal} onSave={handleSave}>
           <p>Enter total number of apartments that would required for this project.</p>
+          <input className={classes.modal_input} onChange={handleChange}/>
         </Modal>;
 
         case "Apartment Type Distribution":
-          return <Modal title={selectTargetType} value='testing' onClose={closeModal} onSave={handleSave}>
+          return <Modal title={selectTargetType} value={value} onClose={closeModal} onSave={handleSave}>
           <p>Enter apartment type distribution targets for this project.</p>
+          <input className={classes.modal_input} onChange={handleChange}/>
         </Modal>;
       }
     };

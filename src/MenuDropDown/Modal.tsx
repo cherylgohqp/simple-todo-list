@@ -46,10 +46,10 @@ const Modal: React.FC<ModalProps> = ({ title, onClose, children, onSave, value})
               </button>
             </div>
             <div className="modal-body">{children}</div>
-            <div className="footerButtons">
-            <button className="cancel-button" onClick={closeModal}>Cancel</button>
-            <button className="save-button" onClick={handleSave}>Save</button>
-            </div>
+              <div className="footerButtons">
+                <button className="cancel-button" onClick={closeModal}>Cancel</button>
+                <button className="save-button" onClick={handleSave}>Save</button>
+              </div>
           </div>
         </div>
       )}
