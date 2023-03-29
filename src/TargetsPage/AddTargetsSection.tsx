@@ -8,9 +8,9 @@ import options from "../MenuDropDown/options";
 import Modal from "../MenuDropDown/Modal";
 import "../MenuDropDown/Modal.scss";
 
-interface Category{
-  name: string;
-  options: string[];
+interface InputFieldProps{
+  suffix: string;
+  onSave: (value: string) => void;
 }
 
 //REFERENCING src\pages\target\components\AddTargetSection.tsx FROM ENVISION REPO
@@ -23,7 +23,9 @@ export const AddTargetSection: React.FC = (): JSX.Element => {
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
   const [selectTargetType, setselectTargetType] = useState<string>("");
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [header, setHeader] = useState('');
+  const [value, setValue] = useState('');
+  
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -32,7 +34,10 @@ export const AddTargetSection: React.FC = (): JSX.Element => {
     setIsModalOpen(false);
   };
 
- 
+  const handleSave = () => {
+    setHeader('Hello');
+    setValue('123');
+  }
   // function getTargetOptions () {
     
   // }
@@ -78,27 +83,28 @@ export const AddTargetSection: React.FC = (): JSX.Element => {
     const modalRendered = () => {
       switch(selectTargetType){
         case "Construction Cost":
-          return <Modal title={selectTargetType} onClose={closeModal}>
+          return <Modal title={selectTargetType} value='testing' onClose={closeModal} onSave={handleSave}>
           <p>Enter the amount you would like to invest on construction.</p>
+          <input/>
         </Modal>;
 
         case "Construction Time":
-          return <Modal title={selectTargetType} onClose={closeModal}>
+          return <Modal title={selectTargetType} value='testing' onClose={closeModal} onSave={handleSave}>
           <p>Enter the estimate amount of time it takes to build.</p>
         </Modal>;
 
         case "Floor Efficiency":
-          return <Modal title={selectTargetType} onClose={closeModal}>
+          return <Modal title={selectTargetType} value='testing' onClose={closeModal} onSave={handleSave}>
           <p>Optimise your floor for maximum efficiency.</p>
         </Modal>;
 
         case "No. of Apartments":
-          return <Modal title={selectTargetType} onClose={closeModal}>
+          return <Modal title={selectTargetType} value='testing' onClose={closeModal} onSave={handleSave}>
           <p>Enter total number of apartments that would required for this project.</p>
         </Modal>;
 
         case "Apartment Type Distribution":
-          return <Modal title={selectTargetType} onClose={closeModal}>
+          return <Modal title={selectTargetType} value='testing' onClose={closeModal} onSave={handleSave}>
           <p>Enter apartment type distribution targets for this project.</p>
         </Modal>;
       }

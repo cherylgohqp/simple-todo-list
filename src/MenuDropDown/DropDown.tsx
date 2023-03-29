@@ -15,6 +15,7 @@ export const DropDown: React.FC<DropDownProps> = ({
   targetTypeSelection,
 }: DropDownProps): JSX.Element => {
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
+  console.log(targetTypeSelection, targetTypes)
   /**
    * Handle passing the target type selected
    * back to the parent component
@@ -40,7 +41,7 @@ export const DropDown: React.FC<DropDownProps> = ({
               <p
                 key={index}
                 onClick={(): void => {
-                  onClickHandler(targetType); //TO CHANGE TO OPENING THE MODAL CODE
+                  onClickHandler(targetType);
                 }}
               >
                 {targetType}

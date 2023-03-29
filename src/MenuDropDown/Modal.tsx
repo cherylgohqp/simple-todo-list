@@ -6,14 +6,32 @@ interface ModalProps {
   title: string;
   onClose: () => void;
   children?: ReactNode;
+  value:string;
+  onSave: (header: string, value:string) => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ title, onClose, children }) => {
+const Modal: React.FC<ModalProps> = ({ title, onClose, children, onSave, value}) => {
   const [isOpen, setIsOpen] = useState(true);
+  const [header, setHeader] = useState(title);
+  const [cardValue, setValue] = useState(value);
 
   const closeModal = () => {
     setIsOpen(false);
     onClose();
+  };
+
+  // const handleSave = () => {
+  //   onSave(header,value);
+  //   console.log(header,value);
+  //   setHeader('');
+  //   setValue('');
+  // }
+
+  const handleSave = () => {
+    console.log(`clicked on ${title} and ${value}`)
+    onSave(title,value);
+    setHeader('');
+    setValue('');
   };
 
   return (
@@ -28,6 +46,10 @@ const Modal: React.FC<ModalProps> = ({ title, onClose, children }) => {
               </button>
             </div>
             <div className="modal-body">{children}</div>
+            <div className="footerButtons">
+            <button className="cancel-button" onClick={closeModal}>Cancel</button>
+            <button className="save-button" onClick={handleSave}>Save</button>
+            </div>
           </div>
         </div>
       )}
