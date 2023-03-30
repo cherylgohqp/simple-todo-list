@@ -7,21 +7,31 @@ import {DropDown} from "../MenuDropDown/DropDown";
 import options from "../MenuDropDown/options";
 import Modal from "../MenuDropDown/Modal";
 import "../MenuDropDown/Modal.scss";
-import TargetCards from "../Cards/TargetCards";
+import axios from 'axios';
+// import TargetCards from "../Cards/TargetCards";
+
 
 //REFERENCING src\pages\target\components\AddTargetSection.tsx FROM ENVISION REPO
 
-// export const AddTargetSection = () => {
-  // const [menuOpen, setMenuOpen] = useState<boolean>(false);
+// interface Card {
+//   cardTitle: string;
+//   cardValue: string;
+// }
+interface Card{
+  header: any;
+  value: string;
+}
 
-export const AddTargetSection: React.FC = (): JSX.Element => {
+// export const AddTargetSection = ({cardTitle, cardValue}: Card) => {
+  export const AddTargetSection = () => {
   // const navigate = useNavigate();
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
   const [selectTargetType, setselectTargetType] = useState<string>("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [header, setHeader] = useState('');
   const [value, setValue] = useState('');
-  
+  const [cards, setCards] = useState<Card[]>([]);
+
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -30,17 +40,34 @@ export const AddTargetSection: React.FC = (): JSX.Element => {
     setIsModalOpen(false);
   };
 
+  useEffect(() => {
+    // Fetch the data from the server using an API call
+    axios.get('/api/cards')
+      .then(response => setCards(response.data))
+      .catch(error => console.log(error));
+  }, []);
 
   //for modal input fields
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>)=>{
     setValue(event.target.value);
-    // console.log(value);
+    // cardValue=value;
   }
 
   const handleSave = () => {
   setHeader(selectTargetType);
+  // cardTitle=header;
+  const newCard: Card = {header, value};
+  const updatedCards = [...cards, newCard];
+  setCards(updatedCards);
+  console.log(`${JSON.stringify(newCard)}`);
+  console.log(`${JSON.stringify(updatedCards)}`);
+
+  // Send a POST request to the server to update the JSON file
+  axios.post('/api/cards', { cards: updatedCards })
+  .then(response => console.log(response))
+  .catch(error => console.log(error));
   // return <TargetCards title={selectTargetType} value={value}/> 
-  }
+  };
 
   // function getTargetOptions () {
     

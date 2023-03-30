@@ -37,8 +37,8 @@ const Modal: React.FC<ModalProps> = ({ title, onClose, children, onSave, value})
   const handleSave = () => {
     console.log(`clicked on ${title} and ${value}`)
     onSave(header,cardValue);
-    const newCard = { modalTitle: title, inputValue: value };
-    setCards([...cards, newCard]);
+    const newCard = { modalTitle: title, inputValue: value }; //maybe can delete this if not used
+    setCards([...cards, newCard]); //maybe can delete this if not used
     setHeader('');
     setValue('');
   };
