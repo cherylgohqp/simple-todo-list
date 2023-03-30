@@ -1,0 +1,9 @@
+{
+  "cards": [
+    { "header": "Construction Time", "value": "abc hours" },
+    { "header": "Construction Time", "value": "abc hours" },
+    { "header": "Construction Time", "value": "abc hours" },
+    { "header": "No. of Apartments", "value": "100" },
+    { "header": "No. of Apartments", "value": "120" }
+  ]
+}

@@ -11,16 +11,11 @@ interface ModalProps {
   onSave: (header: string, value:string) => void;
 }
 
-interface Card{
-  modalTitle: string;
-  inputValue: string;
-}
-
 const Modal: React.FC<ModalProps> = ({ title, onClose, children, onSave, value}) => {
   const [isOpen, setIsOpen] = useState(true);
   const [header, setHeader] = useState(title);
   const [cardValue, setValue] = useState(value);
-  const [cards, setCards] = useState<Card[]>([]);
+  // const [cards, setCards] = useState<Card[]>([]);
 
   const closeModal = () => {
     setIsOpen(false);
@@ -37,8 +32,6 @@ const Modal: React.FC<ModalProps> = ({ title, onClose, children, onSave, value})
   const handleSave = () => {
     console.log(`clicked on ${title} and ${value}`)
     onSave(header,cardValue);
-    const newCard = { modalTitle: title, inputValue: value }; //maybe can delete this if not used
-    setCards([...cards, newCard]); //maybe can delete this if not used
     setHeader('');
     setValue('');
   };

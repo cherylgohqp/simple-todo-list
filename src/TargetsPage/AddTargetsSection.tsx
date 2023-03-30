@@ -42,7 +42,7 @@ interface Card{
 
   useEffect(() => {
     // Fetch the data from the server using an API call
-    axios.get('/api/cards')
+    axios.get('http://localhost:5000/api/cards')
       .then(response => setCards(response.data))
       .catch(error => console.log(error));
   }, []);
@@ -50,20 +50,21 @@ interface Card{
   //for modal input fields
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>)=>{
     setValue(event.target.value);
+    setHeader(selectTargetType); //maybe can have a if scenario where if value is not null then set header to modal title
+    console.log(selectTargetType);
     // cardValue=value;
   }
 
   const handleSave = () => {
-  setHeader(selectTargetType);
-  // cardTitle=header;
+  console.log(header);
   const newCard: Card = {header, value};
   const updatedCards = [...cards, newCard];
   setCards(updatedCards);
-  console.log(`${JSON.stringify(newCard)}`);
-  console.log(`${JSON.stringify(updatedCards)}`);
+  // console.log(`${JSON.stringify(newCard)}`);
+  // console.log(`${JSON.stringify(updatedCards)}`);
 
   // Send a POST request to the server to update the JSON file
-  axios.post('/api/cards', { cards: updatedCards })
+  axios.post('http://localhost:5000/api/cards', { cards: updatedCards })
   .then(response => console.log(response))
   .catch(error => console.log(error));
   // return <TargetCards title={selectTargetType} value={value}/> 

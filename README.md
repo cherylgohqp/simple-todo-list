@@ -44,3 +44,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+### CHERYL
+
+NOTE: my api server is running on port 5000
+-> cd to src folder first then
+-> node server.js
+
+at the same time run ' yarn start ' to run my local repo
