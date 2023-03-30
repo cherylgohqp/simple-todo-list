@@ -3,6 +3,7 @@
 import classes from "./TargetPage.module.scss";
 import { TargetsLandingPage } from "../TargetsLandingPage/TargetsLandingPage";
 import { AddTargetSection } from "./AddTargetsSection";
+import TargetCards from "../Cards/TargetCards";
 // import { useProjectStore } from "stores/projectStore";
 
 export const TargetPage = () => {
@@ -20,6 +21,7 @@ export const TargetPage = () => {
           {/* <TargetCardSection data={targetCardStore.targets} /> */}
         {/* ) : ( */}
           <TargetsLandingPage />
+          <TargetCards />
       {/*read data from json file , key value pair and then pass the args into card to render the card?*/}
       </div>
     </div>

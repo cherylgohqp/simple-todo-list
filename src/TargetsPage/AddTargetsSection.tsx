@@ -40,12 +40,12 @@ interface Card{
     setIsModalOpen(false);
   };
 
-  useEffect(() => {
-    // Fetch the data from the server using an API call
-    axios.get('http://localhost:5000/api/cards')
-      .then(response => setCards(response.data))
-      .catch(error => console.log(error));
-  }, []);
+  // useEffect(() => {
+  //   // Fetch the data from the server using an API call
+  //   axios.get('http://localhost:5000/api/cards')
+  //     .then(response => setCards(response.data))
+  //     .catch(error => console.log(error));
+  // }, []);
 
   //for modal input fields
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>)=>{

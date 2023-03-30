@@ -35,7 +35,7 @@ app.post("/api/cards", (req, res) => {
       const cards = JSON.parse(data);
       const newCard = req.body;
       // newCard.id = Date.now();
-      cards.push(newCard);
+      cards["cards"].push(newCard);
       fs.writeFile(
         "./Cards/targetCardsData.json",
         JSON.stringify(newCard),

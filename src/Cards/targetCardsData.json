@@ -1,9 +1,7 @@
 {
   "cards": [
-    { "header": "Construction Time", "value": "abc hours" },
-    { "header": "Construction Time", "value": "abc hours" },
-    { "header": "Construction Time", "value": "abc hours" },
-    { "header": "No. of Apartments", "value": "100" },
-    { "header": "No. of Apartments", "value": "120" }
+    { "header": "Floor Efficiency", "value": "2ND FLOOR" },
+    { "header": "Floor Efficiency", "value": "2ND FLOOR" },
+    { "header": "Floor Efficiency", "value": "2ND FLOOR" }
   ]
 }
