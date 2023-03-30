@@ -20,7 +20,7 @@ export const TargetPage = () => {
           {/* <TargetCardSection data={targetCardStore.targets} /> */}
         {/* ) : ( */}
           <TargetsLandingPage />
-      
+      {/*read data from json file , key value pair and then pass the args into card to render the card?*/}
       </div>
     </div>
   );

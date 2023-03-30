@@ -1,6 +1,7 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import "./Modal.scss";
 // import { ReactComponent as Cross } from "./caret_down.svg";
+import TargetCards from "../Cards/TargetCards";
 
 interface ModalProps {
   title: string;
@@ -10,10 +11,16 @@ interface ModalProps {
   onSave: (header: string, value:string) => void;
 }
 
+interface Card{
+  modalTitle: string;
+  inputValue: string;
+}
+
 const Modal: React.FC<ModalProps> = ({ title, onClose, children, onSave, value}) => {
   const [isOpen, setIsOpen] = useState(true);
   const [header, setHeader] = useState(title);
   const [cardValue, setValue] = useState(value);
+  const [cards, setCards] = useState<Card[]>([]);
 
   const closeModal = () => {
     setIsOpen(false);
@@ -29,7 +36,9 @@ const Modal: React.FC<ModalProps> = ({ title, onClose, children, onSave, value})
 
   const handleSave = () => {
     console.log(`clicked on ${title} and ${value}`)
-    onSave(title,value);
+    onSave(header,cardValue);
+    const newCard = { modalTitle: title, inputValue: value };
+    setCards([...cards, newCard]);
     setHeader('');
     setValue('');
   };
@@ -53,6 +62,7 @@ const Modal: React.FC<ModalProps> = ({ title, onClose, children, onSave, value})
           </div>
         </div>
       )}
+      {/* <TargetCards title={header} value={cardValue}/> */}
     </>
   );
 };

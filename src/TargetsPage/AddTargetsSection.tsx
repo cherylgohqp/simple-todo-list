@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, createContext } from "react";
 import classes from "./TargetPage.module.scss";
 import {useNavigate} from "react-router-dom";
 // import caretDownIcon from "./caret_down.svg";
@@ -7,6 +7,7 @@ import {DropDown} from "../MenuDropDown/DropDown";
 import options from "../MenuDropDown/options";
 import Modal from "../MenuDropDown/Modal";
 import "../MenuDropDown/Modal.scss";
+import TargetCards from "../Cards/TargetCards";
 
 //REFERENCING src\pages\target\components\AddTargetSection.tsx FROM ENVISION REPO
 
@@ -33,10 +34,12 @@ export const AddTargetSection: React.FC = (): JSX.Element => {
   //for modal input fields
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>)=>{
     setValue(event.target.value);
+    // console.log(value);
   }
 
   const handleSave = () => {
-  setHeader(selectTargetType); 
+  setHeader(selectTargetType);
+  // return <TargetCards title={selectTargetType} value={value}/> 
   }
 
   // function getTargetOptions () {
@@ -147,6 +150,7 @@ export const AddTargetSection: React.FC = (): JSX.Element => {
         </Modal>)} */}
     </button>
         {isModalOpen && (<div>{modalRendered()}</div>)}
+        {/* <TargetCards title={selectTargetType} value={value}/> */}
         </div>
       </div>
     </div>
