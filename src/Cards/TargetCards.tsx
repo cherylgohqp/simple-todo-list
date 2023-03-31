@@ -37,12 +37,12 @@ const TargetCards = () =>{
 
   return(
     <div>
-      {cards.map((card, index) => (
+      {/* {cards.map((card, index) => (
         <div key={index}>
           <h2>{card.cardTitle}</h2>
           <p>{card.cardValue}</p>
         </div>
-      ))}
+      ))} */}
     </div>);
 
 };

@@ -1,7 +1,6 @@
 {
   "cards": [
-    { "header": "Floor Efficiency", "value": "2ND FLOOR" },
-    { "header": "Floor Efficiency", "value": "2ND FLOOR" },
-    { "header": "Floor Efficiency", "value": "2ND FLOOR" }
+    { "header": "Construction Cost", "value": "22 manhours" },
+    { "header": "No. of Apartments", "value": "100" }
   ]
 }
