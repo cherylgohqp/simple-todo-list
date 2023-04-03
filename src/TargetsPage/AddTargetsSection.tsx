@@ -67,7 +67,9 @@ interface Card{
   axios.post('http://localhost:5000/api/cards', updatedCards[0])
   .then(response =>{
     console.log(response)
-    closeModal()})
+    closeModal()
+    window.location.reload();
+  })
   .catch(error => console.log(error));
   // return <TargetCards title={selectTargetType} value={value}/> 
   };
