@@ -2,8 +2,8 @@ import React, { ReactNode, useEffect, useState } from "react";
 import axios from 'axios';
 
 interface Card{
-  cardTitle: string;
-  cardValue: string;
+  header: string;
+  value: string;
 }
 
 const TargetCards = () =>{
@@ -24,7 +24,7 @@ const TargetCards = () =>{
     useEffect(() => {
     // Fetch the data from the server using an API call
     axios.get('http://localhost:5000/api/cards')
-      .then(response => setCards(response.data))
+      .then(response => setCards(response.data.cards))
       .catch(error => console.log(error));
   }, []);
 
@@ -34,15 +34,33 @@ const TargetCards = () =>{
   //   setCards(updatedCards);
   //   localStorage.setItem('cards', JSON.stringify(updatedCards));
   // };
-
+  console.log(cards);
+  const cardsDiv = [];
+  for(var i in cards){
+    // console.log( `am inside for loop`)
+    // console.log(cards[i]['value']);
+    cardsDiv.push(<div>
+    <h2>{cards[i].header}</h2>
+    <p>{cards[i].value}</p>
+  </div>)
+  }
+  
   return(
     <div>
-      {cards.map((card, index) => (
+      {cardsDiv}
+      {/* {for(var i in cards){
+        <div>
+        <h2>{i.cardTitle}</h2>
+        <p>{i.cardValue}</p>
+      </div>
+      }} */}
+      
+      {/* {cards.map((card, index) => (
         <div key={index}>
           <h2>{card.cardTitle}</h2>
           <p>{card.cardValue}</p>
         </div>
-      ))}
+      ))} */}
     </div>);
 
 };
