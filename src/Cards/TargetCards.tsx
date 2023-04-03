@@ -37,7 +37,7 @@ const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty}) =>{
   }
   
   return(
-    <div>
+    <div className="card-section">
       {cardsDiv}
       
       {/* {for(var i in cards){
