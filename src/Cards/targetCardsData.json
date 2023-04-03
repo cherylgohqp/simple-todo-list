@@ -1,1 +1,6 @@
-{"cards":[{"header":"Construction Cost","value":"$22"}]}
+{
+  "cards": [
+    { "header": "Construction Cost", "value": "$22" },
+    { "header": "Floor Efficiency", "value": "22nd floor" }
+  ]
+}
