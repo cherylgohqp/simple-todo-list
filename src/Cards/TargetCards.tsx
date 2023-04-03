@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState, FC } from "react";
 import axios from 'axios';
 import "./TargetCard.scss";
 
@@ -7,37 +7,27 @@ interface Card{
   value: string;
 }
 
-const TargetCards = () =>{
+interface TargetPageProp{
+  setIsJsonEmpty: Function;
+}
+
+const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty}) =>{
   const [cards, setCards] = useState<Card[]>([]);
-  // console.log(title,value)
-  // // localStorage.clear();
-  // console.log(localStorage)
-  // //storage of card info
-  // useEffect(() => {
-  //   const cardsFromStorage = localStorage.getItem('cards');
-    
-  //   if (cardsFromStorage) {
-  //     setCards(JSON.parse(cardsFromStorage));
-  //   } else {
-  //     setCards([]);
-  //   }
-  // }, []);
+
     useEffect(() => {
     // Fetch the data from the server using an API call
     axios.get('http://localhost:5000/api/cards')
       .then(response => setCards(response.data.cards))
       .catch(error => console.log(error));
-  }, []);
-
-  // const handleSave = () => {
-  //   const newCard: Card = { title, value };
-  //   const updatedCards = [...cards, newCard];
-  //   setCards(updatedCards);
-  //   localStorage.setItem('cards', JSON.stringify(updatedCards));
-  // };
-  console.log(cards);
+    }, []);
+    
+    useEffect(() => {
+      console.log(cards.length);
+      setIsJsonEmpty(cards.length === 0);
+    })
+    
   const cardsDiv = [];
-  for(var i in cards){
+  for(var i in cards){ //change to the let i=blah blah
     // console.log( `am inside for loop`)
     // console.log(cards[i]['value']);
     cardsDiv.push(<div className="card-content-wrapper">
