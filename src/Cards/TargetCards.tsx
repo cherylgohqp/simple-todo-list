@@ -30,7 +30,7 @@ const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty}) =>{
   for(var i in cards){ //change to the let i=blah blah
     // console.log( `am inside for loop`)
     // console.log(cards[i]['value']);
-    cardsDiv.push(<div className="card-content-wrapper">
+    cardsDiv.push(<div className="card-content-wrapper" key={i}>
     <h2 className="card-title">{cards[i].header}</h2>
     <p className="card-body">{cards[i].value}</p>
   </div>)
