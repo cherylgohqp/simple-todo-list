@@ -44,7 +44,7 @@ app.post("/api/cards", (req, res) => {
             console.log(err);
             res.status(500).send("Error updating cards data");
           } else {
-            res.status(201).json(newCard[0]);
+            res.status(201).json(cards);
           }
         }
       );

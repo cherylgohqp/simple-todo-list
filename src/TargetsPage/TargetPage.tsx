@@ -4,25 +4,27 @@ import classes from "./TargetPage.module.scss";
 import { TargetsLandingPage } from "../TargetsLandingPage/TargetsLandingPage";
 import { AddTargetSection } from "./AddTargetsSection";
 import TargetCards from "../Cards/TargetCards";
+import * as fs from "fs";
+import React, { useRef, useState, useEffect, createContext } from "react";
+
 // import { useProjectStore } from "stores/projectStore";
 
 export const TargetPage = () => {
   // const [targetCardStore] = useProjectStore();
+  
+  const [isJsonEmpty, setIsJsonEmpty] = useState<boolean>(true);
 
   return (
     <div className={classes.container}>
       <div className={classes.section}>
         <h3 className={classes.targetTitle}>Project Targets</h3>
         <AddTargetSection/>
-        {/* <AddTargetSection projectId={targetCardStore.selectedProjectId} data={targetCardStore.targets} /> */}
+
       </div>
       <div>
-        {/* {targetCardStore.targets.length > 0 ? ( */}
-          {/* <TargetCardSection data={targetCardStore.targets} /> */}
-        {/* ) : ( */}
-          <TargetsLandingPage />
-          <TargetCards />
-      {/*read data from json file , key value pair and then pass the args into card to render the card?*/}
+          {isJsonEmpty && <TargetsLandingPage />}
+          <TargetCards setIsJsonEmpty={setIsJsonEmpty}/>
+          {/* {isJsonEmpty ? <TargetsLandingPage /> : <TargetCards setIsJsonEmpty={setIsJsonEmpty}/>} */}
       </div>
     </div>
   );
