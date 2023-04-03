@@ -1,10 +1,7 @@
 {
   "cards": [
-    { "header": "Construction Cost", "value": "$44" },
-    { "header": "Floor Efficiency", "value": "33%" },
-    { "header": "No. of Apartments", "value": "44 houses" },
-    { "header": "Apartment Type Distribution", "value": "hdb" },
-    { "header": "Construction Time", "value": "ARE U THE PROBLEM" },
-    { "header": "Construction Cost", "value": "ARE U THE PROBLEM NOW" }
+    { "header": "Construction Cost", "value": "$100320" },
+    { "header": "Construction Time", "value": "3400 hours" },
+    { "header": "Floor Efficiency", "value": "40%" }
   ]
 }

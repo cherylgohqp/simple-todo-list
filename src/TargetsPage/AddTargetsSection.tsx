@@ -64,10 +64,11 @@ interface Card{
   // console.log(`${JSON.stringify(updatedCards)}`);
 
   // Send a POST request to the server to update the JSON file
-  axios.post('http://localhost:5000/api/cards', { cards: updatedCards })
+  axios.post('http://localhost:5000/api/cards', updatedCards[0])
   .then(response =>{
     console.log(response)
     closeModal()
+    window.location.reload();
   })
   .catch(error => console.log(error));
   // return <TargetCards title={selectTargetType} value={value}/> 
