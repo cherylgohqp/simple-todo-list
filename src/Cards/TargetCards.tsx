@@ -1,5 +1,6 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import axios from 'axios';
+import "./TargetCard.scss";
 
 interface Card{
   header: string;
@@ -39,15 +40,16 @@ const TargetCards = () =>{
   for(var i in cards){
     // console.log( `am inside for loop`)
     // console.log(cards[i]['value']);
-    cardsDiv.push(<div>
-    <h2>{cards[i].header}</h2>
-    <p>{cards[i].value}</p>
+    cardsDiv.push(<div className="card-content-wrapper">
+    <h2 className="card-title">{cards[i].header}</h2>
+    <p className="card-body">{cards[i].value}</p>
   </div>)
   }
   
   return(
     <div>
       {cardsDiv}
+      
       {/* {for(var i in cards){
         <div>
         <h2>{i.cardTitle}</h2>
