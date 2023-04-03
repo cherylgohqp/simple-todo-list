@@ -33,12 +33,17 @@ app.post("/api/cards", (req, res) => {
       res.status(500).send("Error updating cards data");
     } else {
       const cards = JSON.parse(data);
+      console.log(`current cards in cards.json`);
+      console.log(cards);
       const newCard = req.body;
-      // newCard.id = Date.now();
+      console.log(`new cards added is`);
+      console.log(newCard);
       cards["cards"].push(newCard);
+      console.log(`updated card list now`);
+      console.log(cards);
       fs.writeFile(
         "./Cards/targetCardsData.json",
-        JSON.stringify(newCard),
+        JSON.stringify(cards),
         (err) => {
           if (err) {
             console.log(err);
