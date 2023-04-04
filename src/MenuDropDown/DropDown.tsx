@@ -36,7 +36,7 @@ export const DropDown: React.FC<DropDownProps> = ({
         {targetTypes.map(
           (targetType: string, index: number): JSX.Element => {
             return (
-              <button className='dropdown-textcontainer'>
+              <div className='dropdown-textcontainer'>
               <p className='dropdown-text'
                 key={index}
                 onClick={(): void => {
@@ -45,7 +45,7 @@ export const DropDown: React.FC<DropDownProps> = ({
               >
                 {targetType}
               </p>
-              </button>
+              </div>
             );
           }
         )}
