@@ -15,7 +15,9 @@ function App() {
       <Header/>
       {/* <TargetsLandingPage/> */}
     </header>
-      <div className={classes.contentWrapper}><TargetPage/></div>
+      <div className={classes.contentWrapper}>
+        <TargetPage/>
+        </div>
     </div>
     </Router>
     // <div className="App">
