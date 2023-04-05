@@ -60,9 +60,7 @@ interface Card{
   const newCard: Card = {header, value};
   const updatedCards = [...cards, newCard];
   setCards(updatedCards);
-  // console.log(`${JSON.stringify(newCard)}`);
-  // console.log(`${JSON.stringify(updatedCards)}`);
-
+  
   // Send a POST request to the server to update the JSON file
   axios.post('http://localhost:5000/api/cards', updatedCards[0])
   .then(response =>{
@@ -73,10 +71,6 @@ interface Card{
   .catch(error => console.log(error));
   // return <TargetCards title={selectTargetType} value={value}/> 
   };
-
-  // function getTargetOptions () {
-    
-  // }
 
   const targetTypes = () => {
     // console.log(options.data.targetTypes.map((type) => type.options)) //['Construction Cost', 'Construction Time', 'Floor Efficiency', 'No. of Apartments', 'Apartment Type Distribution']

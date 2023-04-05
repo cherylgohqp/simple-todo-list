@@ -6,7 +6,7 @@
 
 .dropdown {
   position: absolute;
-  transform: translate3d(-268px, 104px, 0px);
+  transform: translate3d(-265px, 102px, 0px);
   border: 1px solid #e1e1e1;
   background: #fff;
   color: #696969;
@@ -16,6 +16,7 @@
   // padding: 0 12px;
   padding-bottom: 8px;
   // padding-top: 8px;
+  z-index: 999;
   box-shadow: -4px 0px 12px rgba(0, 0, 0, 0.1), 4px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
