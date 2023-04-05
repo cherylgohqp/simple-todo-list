@@ -1,7 +1,1 @@
-{
-  "cards": [
-    { "header": "Construction Cost", "value": "$100320" },
-    { "header": "Construction Time", "value": "3400 hours" },
-    { "header": "Floor Efficiency", "value": "40%" }
-  ]
-}
+{"cards":[{"header":"Floor Efficiency","value":"40%"},{"header":"Construction Time","value":"1230 hours"}]}

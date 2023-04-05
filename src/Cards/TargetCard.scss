@@ -33,8 +33,9 @@
     letter-spacing: -0.03125rem;
     height: 100%;
     padding-left: 16px;
-    padding-top: 0;
-    // margin: 0;
+    // padding-top: 0;
+    // padding-bottom: 12px;
+    margin-top: 24px;
 
     // padding: 1rem;
     // display: flex;
@@ -55,7 +56,7 @@
   flex-direction: row-reverse;
 }
 
-.verticalKebab {
+.deleteIcon {
   // display: flex;
   // position: relative;
   // padding-right: 16px;
