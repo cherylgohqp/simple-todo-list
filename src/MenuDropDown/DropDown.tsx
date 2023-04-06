@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import "./DropDown.scss";
-import options from "./options";
-
 
 type DropDownProps = {
   targetTypes: string[];
@@ -38,7 +36,8 @@ export const DropDown: React.FC<DropDownProps> = ({
         {targetTypes.map(
           (targetType: string, index: number): JSX.Element => {
             return (
-              <p
+              <div className='dropdown-textcontainer'>
+              <p className='dropdown-text'
                 key={index}
                 onClick={(): void => {
                   onClickHandler(targetType);
@@ -46,6 +45,7 @@ export const DropDown: React.FC<DropDownProps> = ({
               >
                 {targetType}
               </p>
+              </div>
             );
           }
         )}

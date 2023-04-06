@@ -17,13 +17,11 @@
   margin-bottom: 24px;
 
   .card-title {
-    box-shadow: inset 0px -1px 0px #e1e1e1;
     font-family: "Circular Std Book", sans-serif;
     font-size: 1.1255rem;
     font-weight: 500;
     line-height: 1.5rem;
     letter-spacing: 0.01125rem;
-    padding: 16px;
   }
 
   .card-body {
@@ -35,8 +33,9 @@
     letter-spacing: -0.03125rem;
     height: 100%;
     padding-left: 16px;
-    padding-top: 0;
-    margin: 0;
+    // padding-top: 0;
+    // padding-bottom: 12px;
+    margin-top: 24px;
 
     // padding: 1rem;
     // display: flex;
@@ -45,4 +44,40 @@
     // padding: 16px;
     // box-shadow: inset 0px -1px 0px #e1e1e1;
   }
+}
+
+.card-headersection {
+  box-shadow: inset 0px -1px 0px #e1e1e1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 16px;
+  margin: 0;
+  flex-direction: row-reverse;
+}
+
+.deleteIcon {
+  // display: flex;
+  // position: relative;
+  // padding-right: 16px;
+  // width: 24px;
+  // height: 24px;
+  cursor: pointer;
+  position: relative;
+  padding: 24px;
+  background-color: transparent;
+  border: none;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.card-section {
+  display: flex;
+  // justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 0.4rem;
 }

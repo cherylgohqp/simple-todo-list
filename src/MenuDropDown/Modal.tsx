@@ -22,16 +22,9 @@ const Modal: React.FC<ModalProps> = ({ title, onClose, children, onSave, value})
     onClose();
   };
 
-  // const handleSave = () => {
-  //   onSave(header,value);
-  //   console.log(header,value);
-  //   setHeader('');
-  //   setValue('');
-  // }
-
   const handleSave = () => {
     console.log(`clicked on ${title} and ${value}`)
-    onSave(header,cardValue);
+    onSave(header,cardValue); //this helps to pass the header and card value to addtargetssection handlesave function, for cards data to be saved
     setHeader('');
     setValue('');
   };
@@ -55,7 +48,6 @@ const Modal: React.FC<ModalProps> = ({ title, onClose, children, onSave, value})
           </div>
         </div>
       )}
-      {/* <TargetCards title={header} value={cardValue}/> */}
     </>
   );
 };
