@@ -22,7 +22,8 @@ export const TargetPage = () => {
 
       </div>
       <div>
-          {isJsonEmpty && <TargetsLandingPage />}
+          {/* if there is no data in the jsonfile then render the default landing page */}
+          {isJsonEmpty && <TargetsLandingPage />} 
           <TargetCards setIsJsonEmpty={setIsJsonEmpty}/>
           {/* {isJsonEmpty ? <TargetsLandingPage /> : <TargetCards setIsJsonEmpty={setIsJsonEmpty}/>} */}
       </div>

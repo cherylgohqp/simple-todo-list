@@ -52,3 +52,16 @@ NOTE: my api server is running on port 5000
 -> node server.js
 
 at the same time run ' yarn start ' to run my local repo
+
+### Code Structure:
+
+TargetPage is the one that renders the cards, landing page and the modals (in addtargetsection file)
+
+addTargetSection
+=> contains the 'add target' button
+=> handles the dropdown menu and which modal opens depending on which dropdown menu option was selected
+=> post the cards data to the api and json file when user enters and save the value added to the modal
+
+targetCard
+=> handles the delete of the cards
+=> calls the get func of api to read the data in the json and see which cards to render on the page

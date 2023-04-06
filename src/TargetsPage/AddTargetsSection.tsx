@@ -13,10 +13,6 @@ import axios from 'axios';
 
 //REFERENCING src\pages\target\components\AddTargetSection.tsx FROM ENVISION REPO
 
-// interface Card {
-//   cardTitle: string;
-//   cardValue: string;
-// }
 interface Card{
   header: any;
   value: string;
@@ -166,14 +162,7 @@ interface Card{
           targetTypeSelection={targetTypeSelection}
         />
         )}
-      {/* {selectTargetType==='Construction Cost' && isModalOpen && (
-        <Modal title={selectTargetType} onClose={closeModal}>
-        <p>This is the modal content!</p>
-        </Modal>)}
-        {selectTargetType==='Construction Time' && isModalOpen && (
-          <Modal title={selectTargetType} onClose={closeModal}>
-          <p>This is the modal content!</p>
-        </Modal>)} */}
+
     </button>
         {isModalOpen && (<div>{modalRendered()}</div>)}
         {/* <TargetCards title={selectTargetType} value={value}/> */}
