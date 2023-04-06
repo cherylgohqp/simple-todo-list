@@ -78,6 +78,6 @@
   display: flex;
   // justify-content: space-between;
   flex-wrap: wrap;
-  justify-content: space-between;
-  column-gap: 0.4rem;
+  justify-content: space-evenly;
+  column-gap: 16px;
 }
