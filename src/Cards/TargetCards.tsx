@@ -65,11 +65,11 @@ const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty}) =>{
       {cards.map((card,index) =>(
         <div className="card-content-wrapper" key={index}>
              <div className="card-headersection">
-            <VerticalKebabMenu className="deleteIcon" onClick={()=>handleDelete(index)}/>
              {/* <button className="verticalKebab" onClick={()=> handleDelete(index)}>
                        X
-             </button> */}
+                      </button> */}
              <h2 className="card-title">{card.header}</h2>
+            <VerticalKebabMenu className="deleteIcon" onClick={()=>handleDelete(index)}/>
             </div>
       
          <p className="card-body">{card.value}</p>
