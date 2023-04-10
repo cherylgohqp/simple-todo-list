@@ -1,7 +1,8 @@
 import React, { ReactNode, useEffect, useState, FC } from "react";
 import axios from 'axios';
 import "./TargetCard.scss";
-import { ReactComponent as VerticalKebabMenu } from "./kebab.svg";
+import { ReactComponent as DeleteIcon } from "./delete.svg";
+import { ReactComponent as EditIcon } from "./edit.svg";
 import { Routes, Route, useNavigate} from "react-router-dom";
 
 interface Card{
@@ -9,12 +10,21 @@ interface Card{
   value: string;
 }
 
+// interface EditCard{
+//   edit: boolean;
+//   header: string;
+//   value: string;
+// }
+
 interface TargetPageProp{
   setIsJsonEmpty: Function;
+  setIsEditBtnClicked: Function;
 }
 
-const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty}) =>{
+const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty, setIsEditBtnClicked}) =>{
   const [cards, setCards] = useState<Card[]>([]);
+  // const [editedCard, setEditedCard] = useState<EditCard[]>([]);;
+
   const navigate = useNavigate();
     useEffect(() => {
     // Fetch the data from the server using an API call
@@ -25,6 +35,7 @@ const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty}) =>{
     
     useEffect(() => {
       console.log(cards.length);
+      // console.log(cards)
       setIsJsonEmpty(cards.length === 0);
     })
 
@@ -40,6 +51,14 @@ const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty}) =>{
       axios.delete(`http://localhost:5000/api/cards/${index}`)
       .then( ()=> setCards(newCards))
       .catch(error => console.log(error))
+    };
+
+    const handleEditBtnClick = (index:number, header:string, value:string) => {
+      console.log('clicked on edit button for');
+      console.log(index, header, value);
+      // const currentCardSelected: Card = {header, value};
+      setIsEditBtnClicked([true,header,value]);
+      // setEditedCard(currentCardSelected);
     };
     
   //WORKING ISH CARDS
@@ -65,7 +84,10 @@ const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty}) =>{
       {cards.map((card,index) =>(
         <div className="card-content-wrapper" key={index}>
              <div className="card-headersection">
-            <VerticalKebabMenu className="deleteIcon" onClick={()=>handleDelete(index)}/>
+              <div className="icons-container">
+            <EditIcon className="editIcon" onClick={()=>handleEditBtnClick(index, card.header, card.value)}/>
+            <DeleteIcon className="deleteIcon" onClick={()=>handleDelete(index)}/>
+            </div>
              {/* <button className="verticalKebab" onClick={()=> handleDelete(index)}>
                        X
              </button> */}
