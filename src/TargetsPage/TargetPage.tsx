@@ -17,14 +17,6 @@ export const TargetPage = () => {
   const [selectedCardHeader, setSelectedCardHeader] = useState("");
   const [defaultCardValue, setDefaultCardValue] = useState("");
   const [selectedCardIndex, setSelectedCardIndex] = useState("");
-  console.log(isEditBtnClicked)
-  console.log(selectedCardHeader)
-  console.log(defaultCardValue)
-  console.log(selectedCardIndex);
-
-  // const handleModalStateChange = (newState: boolean | ((prevState: boolean) => boolean)) => {
-  //   setModalState(newState);
-  // };
 
   return (
     <div className={classes.container}>

@@ -56,12 +56,17 @@ at the same time run ' yarn start ' to run my local repo
 ### Code Structure:
 
 TargetPage is the one that renders the cards, landing page and the modals (in addtargetsection file)
+=> handles the passing of the props for editing the values of the card
 
 addTargetSection
 => contains the 'add target' button
 => handles the dropdown menu and which modal opens depending on which dropdown menu option was selected
 => post the cards data to the api and json file when user enters and save the value added to the modal
+=> handles the editing of the cards -> triggers the rendering of the edit modal and also updating the values of the cards when edited as well as updating the data in the json server
 
 targetCard
 => handles the delete of the cards
 => calls the get func of api to read the data in the json and see which cards to render on the page
+=> handles the edit button icon on the cards
+
+server.js => serverside of the json api using axios
