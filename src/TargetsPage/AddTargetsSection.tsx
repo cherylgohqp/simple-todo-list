@@ -19,11 +19,14 @@ interface Card{
 }
 interface TargetPageProp{
   // setModalState:Function;
-  isEditBtnClicked: any;
+  isEditBtnClicked: boolean;
+  selectedCardHeader: string;
+  defaultCardValue: string;
+  setIsEditBtnClicked: Function;
 }
 
 // export const AddTargetSection  = () => {
-  export const AddTargetSection: FC<TargetPageProp>  = ({isEditBtnClicked}) => {
+  export const AddTargetSection: FC<TargetPageProp>  = ({isEditBtnClicked,setIsEditBtnClicked, selectedCardHeader,defaultCardValue}) => {
   // const navigate = useNavigate();
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
   const [selectTargetType, setselectTargetType] = useState<string>("");
@@ -39,6 +42,7 @@ interface TargetPageProp{
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setIsEditBtnClicked(false);
   };
 
   // useEffect(() => {
@@ -146,35 +150,35 @@ interface TargetPageProp{
     };
 
     const editModalRendered = () => {
-      switch(isEditBtnClicked[1]){
+      switch(selectedCardHeader){
         case "Construction Cost":
-          return <Modal title={isEditBtnClicked[1]} value={value} onClose={closeModal} onSave={handleSave}>
+          return <Modal title={selectedCardHeader} value={value} onClose={closeModal} onSave={handleSave}>
           <p>Enter the amount you would like to invest on construction.</p>
-          <input className={classes.modal_input} defaultValue={isEditBtnClicked[2]} onChange={handleChange}/>
+          <input className={classes.modal_input} defaultValue={defaultCardValue} onChange={handleChange}/>
         </Modal>;
 
         case "Construction Time":
-          return <Modal title={isEditBtnClicked[1]} value={value} onClose={closeModal} onSave={handleSave}>
+          return <Modal title={selectedCardHeader} value={value} onClose={closeModal} onSave={handleSave}>
           <p>Enter the estimate amount of time it takes to build.</p>
-          <input className={classes.modal_input} defaultValue={isEditBtnClicked[2]} onChange={handleChange}/>
+          <input className={classes.modal_input} defaultValue={defaultCardValue} onChange={handleChange}/>
         </Modal>;
 
         case "Floor Efficiency":
-          return <Modal title={isEditBtnClicked[1]} value={value} onClose={closeModal} onSave={handleSave}>
+          return <Modal title={selectedCardHeader} value={value} onClose={closeModal} onSave={handleSave}>
           <p>Optimise your floor for maximum efficiency.</p>
-          <input className={classes.modal_input} defaultValue={isEditBtnClicked[2]} onChange={handleChange}/>
+          <input className={classes.modal_input} defaultValue={defaultCardValue} onChange={handleChange}/>
         </Modal>;
 
         case "No. of Apartments":
-          return <Modal title={isEditBtnClicked[1]} value={value} onClose={closeModal} onSave={handleSave}>
+          return <Modal title={selectedCardHeader} value={value} onClose={closeModal} onSave={handleSave}>
           <p>Enter total number of apartments that would required for this project.</p>
-          <input className={classes.modal_input} defaultValue={isEditBtnClicked[2]} onChange={handleChange}/>
+          <input className={classes.modal_input} defaultValue={defaultCardValue} onChange={handleChange}/>
         </Modal>;
 
         case "Apartment Type Distribution":
-          return <Modal title={isEditBtnClicked[1]} value={value} onClose={closeModal} onSave={handleSave}>
+          return <Modal title={selectedCardHeader} value={value} onClose={closeModal} onSave={handleSave}>
           <p>Enter apartment type distribution targets for this project.</p>
-          <input className={classes.modal_input} defaultValue={isEditBtnClicked[2]} onChange={handleChange}/>
+          <input className={classes.modal_input} defaultValue={defaultCardValue} onChange={handleChange}/>
         </Modal>;
       }
     }
@@ -204,7 +208,7 @@ interface TargetPageProp{
 
     </button>
         {isModalOpen && (<div>{modalRendered()}</div>)}
-        {isEditBtnClicked[0] && (<div>{editModalRendered()}</div>)}
+        {isEditBtnClicked && (<div>{editModalRendered()}</div>)}
         {/* <TargetCards title={selectTargetType} value={value}/> */}
         </div>
       </div>

@@ -44,6 +44,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-left: 48px;
 
     .editIcon {
       cursor: pointer;
@@ -51,8 +52,8 @@
       // justify-content: center;
       background-color: transparent;
       border: none;
-      width: 24px;
-      height: 24px;
+      width: 16px;
+      height: 16px;
     }
 
     .deleteIcon {
@@ -61,8 +62,8 @@
       padding: 16px;
       background-color: transparent;
       border: none;
-      width: 24px;
-      height: 24px;
+      width: 16px;
+      height: 16px;
     }
   }
 }

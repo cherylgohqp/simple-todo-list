@@ -19,9 +19,11 @@ interface Card{
 interface TargetPageProp{
   setIsJsonEmpty: Function;
   setIsEditBtnClicked: Function;
+  setSelectedCardHeader: Function;
+  setDefaultCardValue: Function;
 }
 
-const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty, setIsEditBtnClicked}) =>{
+const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty, setIsEditBtnClicked, setSelectedCardHeader, setDefaultCardValue}) =>{
   const [cards, setCards] = useState<Card[]>([]);
   // const [editedCard, setEditedCard] = useState<EditCard[]>([]);;
 
@@ -56,9 +58,10 @@ const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty, setIsEditBtnClicked}) 
     const handleEditBtnClick = (index:number, header:string, value:string) => {
       console.log('clicked on edit button for');
       console.log(index, header, value);
-      // const currentCardSelected: Card = {header, value};
-      setIsEditBtnClicked([true,header,value]);
-      // setEditedCard(currentCardSelected);
+      setIsEditBtnClicked(true);
+      setSelectedCardHeader(header);
+      setDefaultCardValue(value);
+  
     };
     
   //WORKING ISH CARDS
