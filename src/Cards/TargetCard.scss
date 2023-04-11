@@ -6,10 +6,9 @@
 
 .card-section {
   //area where all cards are rendered and displayed
-  display: flex;
+  display: inline-flex;
   // justify-content: space-between;
   flex-wrap: wrap;
-  justify-content: space-evenly;
   column-gap: 16px;
 }
 
