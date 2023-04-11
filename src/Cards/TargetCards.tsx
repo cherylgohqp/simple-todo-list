@@ -84,8 +84,8 @@ const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty, setIsEditBtnClicked}) 
       {cards.map((card,index) =>(
         <div className="card-content-wrapper" key={index}>
              <div className="card-headersection">
-              <div className="icons-container">
             <h2 className="card-title">{card.header}</h2>
+              <div className="icons-container">
             <EditIcon className="editIcon" onClick={()=>handleEditBtnClick(index, card.header, card.value)}/>
             <DeleteIcon className="deleteIcon" onClick={()=>handleDelete(index)}/>
             </div>
