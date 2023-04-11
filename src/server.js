@@ -73,13 +73,45 @@ app.delete("/api/cards/:id", (req, res) => {
       cards["cards"].splice(cardIndexSelected, 1);
       // res.status(200).send("Card deleted successfully");
       console.log(cards);
-      // const index = cards.findIndex((card => ))
       // const newCard = req.body;
       // console.log(`new cards added is`);
       // console.log(newCard);
       // cards["cards"].push(newCard);
       // console.log(`updated card list now`);
       // console.log(cards);
+      fs.writeFile(
+        "./Cards/targetCardsData.json",
+        JSON.stringify(cards),
+        (err) => {
+          if (err) {
+            console.log(err);
+            res.status(500).send("Error updating cards data");
+          } else {
+            res.status(201).json(cards);
+          }
+        }
+      );
+    }
+  });
+});
+
+// Define a route to handle put requests for updating a specific card
+app.put("/api/cards/:id", (req, res) => {
+  fs.readFile("./Cards/targetCardsData.json", "utf8", (err, data) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send("Error updating cards data");
+    } else {
+      const cards = JSON.parse(data);
+      console.log(`current cards in cards.json`);
+      console.log(cards);
+      const cardIndexSelected = parseInt(req.params.id);
+      console.log(`in PUT server.js function, this is index:`);
+      console.log(cardIndexSelected);
+      console.log(cards["cards"][cardIndexSelected]);
+      cards["cards"][cardIndexSelected]["value"] = req.body.value;
+      console.log(cards);
+
       fs.writeFile(
         "./Cards/targetCardsData.json",
         JSON.stringify(cards),

@@ -1,1 +1,8 @@
-{"cards":[{"header":"Floor Efficiency","value":"40%"},{"header":"Construction Cost","value":"12345 sgd"}]}
+{
+  "cards": [
+    { "header": "Floor Efficiency", "value": "1000%" },
+    { "header": "No. of Apartments", "value": "452" },
+    { "header": "Construction Time", "value": "145200 hours" },
+    { "header": "Apartment Type Distribution", "value": "1235" }
+  ]
+}
