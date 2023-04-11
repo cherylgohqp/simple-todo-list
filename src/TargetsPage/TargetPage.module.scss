@@ -8,8 +8,8 @@
   background-color: #ffffff;
   position: relative;
   width: 100%;
-  height: 100%;
-  margin: auto;
+  // height: 100%;
+  margin: 0;
   padding: 3rem 9.75rem;
 }
 
@@ -79,6 +79,10 @@
   outline: none;
   border-color: #1c96a3;
   box-shadow: 0 0 4px #23b4c3;
+}
+
+.modal_input:hover {
+  border-color: #1c96a3;
 }
 
 //below gives the chevron down icon instead

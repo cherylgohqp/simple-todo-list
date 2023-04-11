@@ -5,10 +5,10 @@
 }
 
 .card-section {
-  display: flex;
+  //area where all cards are rendered and displayed
+  display: inline-flex;
   // justify-content: space-between;
   flex-wrap: wrap;
-  justify-content: space-evenly;
   column-gap: 16px;
 }
 
@@ -19,39 +19,9 @@
   flex-direction: column;
   border: #e1e1e1 solid 1px;
   border-radius: 8px;
-  width: 264px;
   min-width: 300px;
   height: 146px;
   margin-bottom: 24px;
-
-  .card-title {
-    font-family: "Circular Std Book", sans-serif;
-    font-size: 1.1255rem;
-    font-weight: 500;
-    line-height: 1.5rem;
-    letter-spacing: 0.01125rem;
-  }
-
-  .card-body {
-    color: #474343;
-    font-family: "Circular Std Book", sans-serif;
-    font-size: 2.255rem;
-    font-weight: 450;
-    line-height: 2.5rem;
-    letter-spacing: -0.03125rem;
-    height: 100%;
-    padding-left: 16px;
-    // padding-top: 0;
-    // padding-bottom: 12px;
-    margin-top: 24px;
-
-    // padding: 1rem;
-    // display: flex;
-    // flex-grow: 1;
-    // overflow: hidden;
-    // padding: 16px;
-    // box-shadow: inset 0px -1px 0px #e1e1e1;
-  }
 }
 
 .card-headersection {
@@ -61,45 +31,33 @@
   align-items: center;
   padding-left: 16px;
   margin: 0;
-  flex-direction: row-reverse;
-}
 
-.deleteIcon {
-  // display: flex;
-  // position: relative;
-  // padding-right: 16px;
-  // width: 24px;
-  // height: 24px;
-  cursor: pointer;
-  // position: relative;
-  // padding: 24px;
-  background-color: transparent;
-  border: none;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
+  .card-title {
+    font-family: "Circular Std Book", sans-serif;
+    font-size: 1.1255rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.01125rem;
+  }
 
-.editIcon {
-  cursor: pointer;
-  // position: relative;
-  // padding: 12px;
-  // margin: 0;
-  background-color: transparent;
-  border: none;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  .deleteIcon {
+    cursor: pointer;
+    position: relative;
+    padding: 24px;
+    background-color: transparent;
+    border: none;
+    width: 24px;
+    height: 24px;
+  }
 }
-
-.icons-container {
-  display: flex;
-  justify-content: space-between;
-  column-gap: 16px;
-  align-items: center;
-  padding-right: 12px;
+.card-body {
+  color: #474343;
+  font-family: "Circular Std Book", sans-serif;
+  font-size: 2.255rem;
+  font-weight: 450;
+  line-height: 2.5rem;
+  letter-spacing: -0.03125rem;
+  height: 100%;
+  padding-left: 16px;
+  margin-top: 24px;
 }

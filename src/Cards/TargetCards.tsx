@@ -85,13 +85,13 @@ const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty, setIsEditBtnClicked}) 
         <div className="card-content-wrapper" key={index}>
              <div className="card-headersection">
               <div className="icons-container">
+            <h2 className="card-title">{card.header}</h2>
             <EditIcon className="editIcon" onClick={()=>handleEditBtnClick(index, card.header, card.value)}/>
             <DeleteIcon className="deleteIcon" onClick={()=>handleDelete(index)}/>
             </div>
              {/* <button className="verticalKebab" onClick={()=> handleDelete(index)}>
                        X
-             </button> */}
-             <h2 className="card-title">{card.header}</h2>
+                      </button> */}
             </div>
       
          <p className="card-body">{card.value}</p>
