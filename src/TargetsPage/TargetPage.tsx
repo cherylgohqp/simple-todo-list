@@ -16,9 +16,11 @@ export const TargetPage = () => {
   const [isEditBtnClicked, setIsEditBtnClicked] = useState<boolean>(true);
   const [selectedCardHeader, setSelectedCardHeader] = useState("");
   const [defaultCardValue, setDefaultCardValue] = useState("");
+  const [selectedCardIndex, setSelectedCardIndex] = useState("");
   console.log(isEditBtnClicked)
   console.log(selectedCardHeader)
   console.log(defaultCardValue)
+  console.log(selectedCardIndex);
 
   // const handleModalStateChange = (newState: boolean | ((prevState: boolean) => boolean)) => {
   //   setModalState(newState);
@@ -28,13 +30,13 @@ export const TargetPage = () => {
     <div className={classes.container}>
       <div className={classes.section}>
         <h3 className={classes.targetTitle}>Project Targets</h3>
-        <AddTargetSection isEditBtnClicked={isEditBtnClicked} setIsEditBtnClicked={setIsEditBtnClicked} selectedCardHeader={selectedCardHeader} defaultCardValue={defaultCardValue}/>
+        <AddTargetSection isEditBtnClicked={isEditBtnClicked} setIsEditBtnClicked={setIsEditBtnClicked} selectedCardHeader={selectedCardHeader} defaultCardValue={defaultCardValue} selectedCardIndex={selectedCardIndex}/>
 
       </div>
       <div>
           {/* if there is no data in the jsonfile then render the default landing page */}
           {isJsonEmpty && <TargetsLandingPage />} 
-          <TargetCards setIsJsonEmpty={setIsJsonEmpty} setIsEditBtnClicked={setIsEditBtnClicked} setSelectedCardHeader={setSelectedCardHeader} setDefaultCardValue={setDefaultCardValue}/>
+          <TargetCards setIsJsonEmpty={setIsJsonEmpty} setIsEditBtnClicked={setIsEditBtnClicked} setSelectedCardHeader={setSelectedCardHeader} setDefaultCardValue={setDefaultCardValue} setSelectedCardIndex={setSelectedCardIndex}/>
           {/* {isJsonEmpty ? <TargetsLandingPage /> : <TargetCards setIsJsonEmpty={setIsJsonEmpty}/>} */}
       </div>
     </div>

@@ -23,10 +23,11 @@ interface TargetPageProp{
   selectedCardHeader: string;
   defaultCardValue: string;
   setIsEditBtnClicked: Function;
+  selectedCardIndex: string;
 }
 
 // export const AddTargetSection  = () => {
-  export const AddTargetSection: FC<TargetPageProp>  = ({isEditBtnClicked,setIsEditBtnClicked, selectedCardHeader,defaultCardValue}) => {
+  export const AddTargetSection: FC<TargetPageProp>  = ({isEditBtnClicked,setIsEditBtnClicked, selectedCardHeader,defaultCardValue, selectedCardIndex}) => {
   // const navigate = useNavigate();
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
   const [selectTargetType, setselectTargetType] = useState<string>("");
@@ -38,6 +39,7 @@ interface TargetPageProp{
   // console.log(isEditBtnClicked[0], isEditBtnClicked[1], isEditBtnClicked[2])
   const openModal = () => {
     setIsModalOpen(true);
+    // setIsEditBtnClicked(true);
   };
 
   const closeModal = () => {
@@ -56,7 +58,7 @@ interface TargetPageProp{
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>)=>{
     setValue(event.target.value);
     setHeader(selectTargetType); //maybe can have a if scenario where if value is not null then set header to modal title
-    console.log(selectTargetType);
+    // console.log(selectTargetType);
     // cardValue=value;
   }
 
@@ -76,6 +78,22 @@ interface TargetPageProp{
   .catch(error => console.log(error));
   // return <TargetCards title={selectTargetType} value={value}/> 
   };
+
+  const updateCardHandler = () =>{
+    console.log(selectedCardHeader,  value)
+      // Send a PUT request to the server with the ID of the card to be updated and the new title and description
+  axios.put(`http://localhost:5000/api/cards/${parseInt(selectedCardIndex)}`, { selectedCardHeader, value })
+  .then(response => {
+    // If the card is updated successfully, log a success message
+    console.log(response.data);
+    closeModal();
+    window.location.reload();
+  })
+  .catch(error => {
+    // If the card is not found or there's an error, log an error message
+    console.log(error.message);
+  });
+};
 
   const targetTypes = () => {
     // console.log(options.data.targetTypes.map((type) => type.options)) //['Construction Cost', 'Construction Time', 'Floor Efficiency', 'No. of Apartments', 'Apartment Type Distribution']
@@ -152,31 +170,31 @@ interface TargetPageProp{
     const editModalRendered = () => {
       switch(selectedCardHeader){
         case "Construction Cost":
-          return <Modal title={selectedCardHeader} value={value} onClose={closeModal} onSave={handleSave}>
+          return <Modal title={selectedCardHeader} value={value} onClose={closeModal} onSave={updateCardHandler}>
           <p>Enter the amount you would like to invest on construction.</p>
           <input className={classes.modal_input} defaultValue={defaultCardValue} onChange={handleChange}/>
         </Modal>;
 
         case "Construction Time":
-          return <Modal title={selectedCardHeader} value={value} onClose={closeModal} onSave={handleSave}>
+          return <Modal title={selectedCardHeader} value={value} onClose={closeModal} onSave={updateCardHandler}>
           <p>Enter the estimate amount of time it takes to build.</p>
           <input className={classes.modal_input} defaultValue={defaultCardValue} onChange={handleChange}/>
         </Modal>;
 
         case "Floor Efficiency":
-          return <Modal title={selectedCardHeader} value={value} onClose={closeModal} onSave={handleSave}>
+          return <Modal title={selectedCardHeader} value={value} onClose={closeModal} onSave={updateCardHandler}>
           <p>Optimise your floor for maximum efficiency.</p>
           <input className={classes.modal_input} defaultValue={defaultCardValue} onChange={handleChange}/>
         </Modal>;
 
         case "No. of Apartments":
-          return <Modal title={selectedCardHeader} value={value} onClose={closeModal} onSave={handleSave}>
+          return <Modal title={selectedCardHeader} value={value} onClose={closeModal} onSave={updateCardHandler}>
           <p>Enter total number of apartments that would required for this project.</p>
           <input className={classes.modal_input} defaultValue={defaultCardValue} onChange={handleChange}/>
         </Modal>;
 
         case "Apartment Type Distribution":
-          return <Modal title={selectedCardHeader} value={value} onClose={closeModal} onSave={handleSave}>
+          return <Modal title={selectedCardHeader} value={value} onClose={closeModal} onSave={updateCardHandler}>
           <p>Enter apartment type distribution targets for this project.</p>
           <input className={classes.modal_input} defaultValue={defaultCardValue} onChange={handleChange}/>
         </Modal>;
