@@ -71,14 +71,9 @@ app.delete("/api/cards/:id", (req, res) => {
       console.log(cardIndexSelected);
       console.log(cards["cards"][cardIndexSelected]);
       cards["cards"].splice(cardIndexSelected, 1);
-      // res.status(200).send("Card deleted successfully");
+      res.status(200).send("Card deleted successfully");
       console.log(cards);
-      // const newCard = req.body;
-      // console.log(`new cards added is`);
-      // console.log(newCard);
-      // cards["cards"].push(newCard);
-      // console.log(`updated card list now`);
-      // console.log(cards);
+  
       fs.writeFile(
         "./Cards/targetCardsData.json",
         JSON.stringify(cards),
