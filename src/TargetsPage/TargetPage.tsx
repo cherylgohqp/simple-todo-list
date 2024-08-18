@@ -1,16 +1,11 @@
-// import { TargetCardSection } from "../components/Cards/TargetCards";
-// import { AddTargetSection } from "../components/AddTargetSection";
+
 import classes from "./TargetPage.module.scss";
 import { TargetsLandingPage } from "../TargetsLandingPage/TargetsLandingPage";
 import { AddTargetSection } from "./AddTargetsSection";
 import TargetCards from "../Cards/TargetCards";
-import * as fs from "fs";
-import React, { useRef, useState, useEffect, createContext } from "react";
-
-// import { useProjectStore } from "stores/projectStore";
+import { useState  } from "react";
 
 export const TargetPage = () => {
-  // const [targetCardStore] = useProjectStore();
   
   const [isJsonEmpty, setIsJsonEmpty] = useState<boolean>(true);
   const [isEditBtnClicked, setIsEditBtnClicked] = useState<boolean>(true);
@@ -31,7 +26,11 @@ export const TargetPage = () => {
           <TargetCards setIsJsonEmpty={setIsJsonEmpty} setIsEditBtnClicked={setIsEditBtnClicked} setSelectedCardHeader={setSelectedCardHeader} setDefaultCardValue={setDefaultCardValue} setSelectedCardIndex={setSelectedCardIndex}/>
           {/* {isJsonEmpty ? <TargetsLandingPage /> : <TargetCards setIsJsonEmpty={setIsJsonEmpty}/>} */}
       </div>
+      <div className={classes.wombat}>
+      <a href="https://www.flaticon.com/free-icons/wombat" title="wombat icons">Wombat icons created by Freepik - Flaticon</a>
+      </div>
     </div>
+    
   );
 };
 
