@@ -29,6 +29,7 @@ interface TargetPageProp{
 // export const AddTargetSection  = () => {
   export const AddTargetSection: FC<TargetPageProp>  = ({isEditBtnClicked,setIsEditBtnClicked, selectedCardHeader,defaultCardValue, selectedCardIndex}) => {
   // const navigate = useNavigate();
+  const API_URL = "https://target-test-api.vercel.app"; //prev: http://localhost:5000/
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
   const [selectTargetType, setselectTargetType] = useState<string>("");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -69,7 +70,7 @@ interface TargetPageProp{
   setCards(updatedCards);
   
   // Send a POST request to the server to update the JSON file
-  axios.post('http://localhost:5000/api/cards', updatedCards[0])
+  axios.post(`${API_URL}/api/cards`, updatedCards[0])
   .then(response =>{
     console.log(response)
     closeModal()
@@ -81,7 +82,7 @@ interface TargetPageProp{
   const updateCardHandler = () =>{
     console.log(selectedCardHeader,  value)
       // Send a PUT request to the server with the ID of the card to be updated and the new title and description
-  axios.put(`http://localhost:5000/api/cards/${parseInt(selectedCardIndex)}`, { selectedCardHeader, value })
+  axios.put(`${API_URL}/api/cards/${parseInt(selectedCardIndex)}`, { selectedCardHeader, value })
   .then(response => {
     // If the card is updated successfully, log a success message
     console.log(response.data);
