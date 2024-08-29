@@ -73,7 +73,6 @@ interface TargetPageProp{
   .then(response =>{
     console.log(response)
     closeModal()
-    window.location.reload();
   })
   .catch(error => console.log(error));
   // return <TargetCards title={selectTargetType} value={value}/> 
@@ -87,7 +86,6 @@ interface TargetPageProp{
     // If the card is updated successfully, log a success message
     console.log(response.data);
     closeModal();
-    window.location.reload();
   })
   .catch(error => {
     // If the card is not found or there's an error, log an error message
