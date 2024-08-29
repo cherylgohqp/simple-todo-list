@@ -3,7 +3,6 @@ import axios from 'axios';
 import "./TargetCard.scss";
 import { ReactComponent as DeleteIcon } from "./delete.svg";
 import { ReactComponent as EditIcon } from "./edit.svg";
-import { useNavigate} from "react-router-dom";
 
 interface Card{
   header: string;
@@ -17,17 +16,18 @@ interface TargetPageProp{
   setDefaultCardValue: Function;
   setSelectedCardIndex: Function;
 }
+const API_URL = "https://target-test-api.vercel.app"; //prev: http://localhost:5000/
 
 const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty, setIsEditBtnClicked, setSelectedCardHeader, setDefaultCardValue, setSelectedCardIndex}) =>{
   const [cards, setCards] = useState<Card[]>([]);
-
-  const navigate = useNavigate();
     useEffect(() => {
     // Fetch the data from the server using an API call
-    axios.get('http://localhost:5000/api/cards')
-      .then(response => setCards(response.data.cards))
+    axios.get(`${API_URL}/api/cards`)
+      .then(response => setCards(response.data[0].cards))
+        // console.log("response", response.data[0].cards))
+        // setCards(response.data.cards))
       .catch(error => console.log(error));
-    }, []);
+    }, [cards]);
     
     useEffect(() => {
 
@@ -39,7 +39,7 @@ const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty, setIsEditBtnClicked, s
       const newCards = [...cards];
       newCards.splice(index, 1); //removes the index clicked
 
-      axios.delete(`http://localhost:5000/api/cards/${index}`)
+      axios.delete(`${API_URL}/api/cards/${index}`)
       .then( ()=> setCards(newCards))
       .catch(error => console.log(error))
     };

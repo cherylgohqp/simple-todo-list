@@ -1,8 +1,1 @@
-{
-  "cards": [
-    { "header": "Floor Efficiency", "value": "1000%" },
-    { "header": "No. of Apartments", "value": "452" },
-    { "header": "Construction Time", "value": "145200 hours" },
-    { "header": "Apartment Type Distribution", "value": "1235" }
-  ]
-}
+{"cards":[{"header":"Construction Time","value":"145200 hours"},{"header":"Apartment Type Distribution","value":"1235"}]}
