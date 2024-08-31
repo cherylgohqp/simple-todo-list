@@ -8,7 +8,7 @@ import { useState  } from "react";
 export const TargetPage = () => {
   
   const [isJsonEmpty, setIsJsonEmpty] = useState<boolean>(true);
-  const [isEditBtnClicked, setIsEditBtnClicked] = useState<boolean>(true);
+  const [isEditBtnClicked, setIsEditBtnClicked] = useState<boolean>(false);
   const [selectedCardHeader, setSelectedCardHeader] = useState("");
   const [defaultCardValue, setDefaultCardValue] = useState("");
   const [selectedCardIndex, setSelectedCardIndex] = useState("");

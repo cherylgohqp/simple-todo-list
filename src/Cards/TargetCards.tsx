@@ -55,7 +55,8 @@ const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty, setIsEditBtnClicked, s
   
   return(
     <div className="card-section">
-      {cards.map((card,index) =>(
+      {cards.length > 0 && cards.map((card, index) => (
+        card && ( // Guard against null or undefined
         <div className="card-content-wrapper" key={index}>
              <div className="card-headersection">
             <h2 className="card-title">{card.header}</h2>
@@ -68,7 +69,7 @@ const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty, setIsEditBtnClicked, s
          <p className="card-body">{card.value}</p>
         </div>
       )
-      )}
+      ))}
     </div>);
 
 };
