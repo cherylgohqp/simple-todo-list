@@ -195,7 +195,7 @@ export const AddTargetSection: FC<TargetPageProp> = ({
         value={value}
         onClose={closeModal}
         onSave={handleSave}
-        isDisabled={value === "" || header === ""}
+        isDisabled={value === "" || header === "" || !!valueError || !!headerError} // double exclamation marks (!!) ensure that the condition evaluates to a boolean value (true if there's an error string, false otherwise).
       >
         <p>Enter the task title:</p>
         <input
@@ -227,7 +227,7 @@ export const AddTargetSection: FC<TargetPageProp> = ({
         onClose={closeModal}
         onSave={updateCardHandler}
         isDisabled={
-          (value === defaultCardValue && header === selectedCardHeader)
+          (value === defaultCardValue && header === selectedCardHeader)||!!headerError|| !!valueError
         } //maybe can do a validation check for null values
       >
         <p>Edit the task title:</p>
