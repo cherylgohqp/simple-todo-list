@@ -71,14 +71,10 @@ export const AddTargetSection: FC<TargetPageProp> = ({
   const closeModal = () => {
     setIsModalOpen(false);
     setIsEditBtnClicked(false);
-    
+    setHeaderError("");
+    setValueError("")
   };
 
-  const saveChanges = () => {
-    setIsModalOpen(false);
-    // setHeader("");
-    // setValue("");
-  };
 
   const openEditModal = () => {
     setHeader(selectedCardHeader); // Set the current header for editing
@@ -231,7 +227,7 @@ export const AddTargetSection: FC<TargetPageProp> = ({
         onClose={closeModal}
         onSave={updateCardHandler}
         isDisabled={
-          value === defaultCardValue && header === selectedCardHeader
+          (value === defaultCardValue && header === selectedCardHeader)
         } //maybe can do a validation check for null values
       >
         <p>Edit the task title:</p>
