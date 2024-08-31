@@ -61,6 +61,11 @@ export const AddTargetSection: FC<TargetPageProp> = ({
   const closeModal = () => {
     setIsModalOpen(false);
     setIsEditBtnClicked(false);
+
+  };
+
+  const saveChanges = () => {
+    setIsModalOpen(false);
     setHeader("");
     setValue("");
   };
@@ -85,7 +90,8 @@ export const AddTargetSection: FC<TargetPageProp> = ({
       .post(`${API_URL}/api/cards`, updatedCards[0])
       .then((response) => {
         console.log(response);
-        setIsModalOpen(false);
+        // setIsModalOpen(false);
+        saveChanges();
       })
       .catch((error) => console.log(error));
     // return <TargetCards title={selectTargetType} value={value}/>
@@ -141,13 +147,20 @@ export const AddTargetSection: FC<TargetPageProp> = ({
     setselectTargetType(targetType);
     openModal();
   };
+
+  const isButtonDisabled = 
+    (editValue === defaultCardValue && editHeader === selectedCardHeader) ||
+    (value === "" && header === "");
+    
   const modalRendered = () => {
+
     return (
       <Modal
         title="Add New Task"
         value={value}
         onClose={closeModal}
         onSave={handleSave}
+        isDisabled={value === "" || header === ""}
       >
         <p>Enter the task title:</p>
         <input
@@ -174,6 +187,7 @@ export const AddTargetSection: FC<TargetPageProp> = ({
         value={editValue}
         onClose={closeModal}
         onSave={updateCardHandler}
+        isDisabled={editValue===defaultCardValue && editHeader===selectedCardHeader} //maybe can do a validation check for null values
       >
         <p>Edit the task title:</p>
         <input

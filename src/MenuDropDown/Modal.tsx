@@ -2,6 +2,7 @@ import React, { ReactNode, useEffect, useState } from "react";
 import "./Modal.scss";
 // import { ReactComponent as Cross } from "./caret_down.svg";
 import TargetCards from "../Cards/TargetCards";
+import { isDisabled } from "@testing-library/user-event/dist/utils";
 
 interface ModalProps {
   title: string;
@@ -9,14 +10,16 @@ interface ModalProps {
   children?: ReactNode;
   value:string;
   onSave: (header: string, value:string) => void;
+  isDisabled?:boolean;
 }
 
-const Modal: React.FC<ModalProps> = ({ title, onClose, children, onSave, value}) => {
+const Modal: React.FC<ModalProps> = ({ title, onClose, children, onSave, value, isDisabled}) => {
   const [isOpen, setIsOpen] = useState(true);
   const [header, setHeader] = useState(title);
   const [cardValue, setValue] = useState(value);
   // const [cards, setCards] = useState<Card[]>([]);
-
+  // Determine if changes are made
+  // const hasChanges = header !== title || cardValue !== value;
   const closeModal = () => {
     setIsOpen(false);
     onClose();
@@ -43,7 +46,7 @@ const Modal: React.FC<ModalProps> = ({ title, onClose, children, onSave, value})
             <div className="modal-body">{children}</div>
               <div className="footerButtons">
                 <button className="cancel-button" onClick={closeModal}>Cancel</button>
-                <button className="save-button" onClick={handleSave}>Save</button>
+                <button className="save-button" onClick={handleSave} disabled={isDisabled}>Save</button>
               </div>
           </div>
         </div>

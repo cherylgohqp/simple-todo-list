@@ -124,3 +124,10 @@
   background: linear-gradient(90deg, #23b4c3 0%, #19838c 100%);
   box-shadow: -4px 0px 12px rgba(0, 0, 0, 0.1), 4px 4px 12px rgba(0, 0, 0, 0.1);
 }
+
+.save-button:disabled {
+  background-color: #cccccc; /* Gray */
+  color: #666666; /* Light gray text */
+  cursor: not-allowed; /* Change cursor to indicate disabled */
+  opacity: 0.6; /* Optional: make it look "grayed out" */
+}
