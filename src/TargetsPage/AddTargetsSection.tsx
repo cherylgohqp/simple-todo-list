@@ -87,24 +87,25 @@ export const AddTargetSection: FC<TargetPageProp> = ({
     setHeader(event.target.value);
   };
 
-  // const handleValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setValue(event.target.value);
-  // };
+  const handleValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
+  };
 
   const handleSave = () => {
-    console.log(header);
+
     const newCard: Card = { header, value };
     const updatedCards = [...cards, newCard];
+
     setCards(updatedCards);
 
     // Send a POST request to the server to update the JSON file
     axios
-      .post(`${API_URL}/api/cards`, updatedCards[0])
+      .post(`${API_URL}/api/cards`, newCard)
       .then((response) => {
         console.log(response);
-        // setIsModalOpen(false);
+   
         closeModal();
-        // saveChanges();
+
       })
       .catch((error) => console.log(error));
     // return <TargetCards title={selectTargetType} value={value}/>
@@ -210,7 +211,7 @@ export const AddTargetSection: FC<TargetPageProp> = ({
         <input
           className={classes.modal_value_input}
           value={value}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={handleValueChange}
           placeholder="Task Description"
           onBlur={() => validateInputs("description")}
         />
@@ -234,7 +235,7 @@ export const AddTargetSection: FC<TargetPageProp> = ({
         <input
           className={classes.modal_header_input}
           value={header}
-          onChange={(e) => setHeader(e.target.value)} // Update state correctly
+          onChange={handleHeaderChange} // Update state correctly
           placeholder="Task Title"
           onBlur={() => validateInputs("header")}
         />
@@ -244,7 +245,7 @@ export const AddTargetSection: FC<TargetPageProp> = ({
         <input
           className={classes.modal_value_input}
           value={value}
-          onChange={(e) => setValue(e.target.value)} // Update state correctly
+          onChange={handleValueChange} // Update state correctly
           placeholder="Task Description"
           onBlur={() => validateInputs("description")}
         />
