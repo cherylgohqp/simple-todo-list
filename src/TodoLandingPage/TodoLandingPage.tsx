@@ -1,11 +1,11 @@
-import classes from "./TargetsLandingPage.module.scss";
+import classes from "./TodoLandingPage.module.scss";
 import { ReactComponent as TargetFeaturedIcon } from "./targetFeaturedIcon.svg";
 
 type Props = {
   title?: string;
 };
 
-export const TargetsLandingPage = ({ title }: Props) => {
+export const TodoLandingPage = ({ title }: Props) => {
   return (
       <div className={classes.center}>
         <div className={classes.icon}>

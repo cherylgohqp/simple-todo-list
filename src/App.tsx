@@ -1,5 +1,5 @@
 import Header from "./NavHeader/Header";
-import {TargetPage} from "./TargetsPage/TargetPage";
+import {TodoPage} from "./TodoPage/TodoPage";
 import {BrowserRouter as Router} from 'react-router-dom';
 import classes from "./App.module.scss"
 
@@ -11,7 +11,7 @@ function App() {
       <Header/>
     </header>
       <div className={classes.contentWrapper}>
-        <TargetPage/>
+        <TodoPage/>
         </div>
     </div>
     </Router>

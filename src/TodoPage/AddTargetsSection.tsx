@@ -1,5 +1,5 @@
 import React, { useState, FC, useEffect } from "react";
-import classes from "./TargetPage.module.scss";
+import classes from "./TodoPage.module.scss";
 import { ReactComponent as PlusIcon } from "./plus.svg";
 import Modal from "../MenuDropDown/Modal";
 import "../MenuDropDown/Modal.scss";

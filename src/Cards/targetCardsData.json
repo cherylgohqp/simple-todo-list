@@ -1,1 +1,6 @@
-{"cards":[{"header":"Construction Time","value":"145200 hours"},{"header":"Apartment Type Distribution","value":"1235"}]}
+{
+  "cards": [
+    { "header": "Construction Time", "value": "145200 hours" },
+    { "header": "Apartment Type Distribution", "value": "1235" }
+  ]
+}
