@@ -25,9 +25,6 @@ export const TodoPage = () => {
           {isJsonEmpty && <TodoLandingPage />} 
           <TodoCards setIsJsonEmpty={setIsJsonEmpty} setIsEditBtnClicked={setIsEditBtnClicked} setSelectedCardHeader={setSelectedCardHeader} setDefaultCardValue={setDefaultCardValue} setSelectedCardIndex={setSelectedCardIndex}/>
       </div>
-      <div className={classes.wombat}>
-      <a href="https://www.flaticon.com/free-icons/wombat" title="wombat icons">Wombat icons created by Freepik - Flaticon</a>
-      </div>
     </div>
     
   );
