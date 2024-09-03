@@ -87,9 +87,9 @@ export const AddTargetSection: FC<TargetPageProp> = ({
     setHeader(event.target.value);
   };
 
-  const handleValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
-  };
+  // const handleValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setValue(event.target.value);
+  // };
 
   const handleSave = () => {
     console.log(header);
@@ -210,7 +210,7 @@ export const AddTargetSection: FC<TargetPageProp> = ({
         <input
           className={classes.modal_value_input}
           value={value}
-          onChange={handleValueChange}
+          onChange={(e) => setValue(e.target.value)}
           placeholder="Task Description"
           onBlur={() => validateInputs("description")}
         />
@@ -228,7 +228,7 @@ export const AddTargetSection: FC<TargetPageProp> = ({
         onSave={updateCardHandler}
         isDisabled={
           (value === defaultCardValue && header === selectedCardHeader)||!!headerError|| !!valueError
-        } //maybe can do a validation check for null values
+        }
       >
         <p>Edit the task title:</p>
         <input

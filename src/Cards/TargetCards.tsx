@@ -1,6 +1,6 @@
 import React, { useEffect, useState, FC } from "react";
 import axios from 'axios';
-import "./TargetCard.scss";
+import styles from "./TargetCard.module.scss";
 import { ReactComponent as DeleteIcon } from "./delete.svg";
 import { ReactComponent as EditIcon } from "./edit.svg";
 
@@ -54,19 +54,19 @@ const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty, setIsEditBtnClicked, s
   
   
   return(
-    <div className="card-section">
+    <div className={styles["card-section"]}>
       {cards.length > 0 && cards.map((card, index) => (
         card && ( // Guard against null or undefined
-        <div className="card-content-wrapper" key={index}>
-             <div className="card-headersection">
-            <h2 className="card-title">{card.header}</h2>
-              <div className="icons-container">
-            <EditIcon className="editIcon" onClick={()=>handleEditBtnClick(index, card.header, card.value)}/>
-            <DeleteIcon className="deleteIcon" onClick={()=>handleDelete(index)}/>
+        <div className={styles["card-content-wrapper"]} key={index}>
+             <div className={styles["card-headersection"]}>
+            <h2 className={styles["card-title"]}>{card.header}</h2>
+              <div className={styles["icons-container"]}>
+            <EditIcon className={styles["editIcon"]} onClick={()=>handleEditBtnClick(index, card.header, card.value)}/>
+            <DeleteIcon className={styles["deleteIcon"]} onClick={()=>handleDelete(index)}/>
             </div>
             </div>
       
-         <p className="card-body">{card.value}</p>
+         <p className={styles["card-body"]}>{card.value}</p>
         </div>
       )
       ))}

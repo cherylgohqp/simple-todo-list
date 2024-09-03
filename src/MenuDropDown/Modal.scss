@@ -131,3 +131,9 @@
   cursor: not-allowed; /* Change cursor to indicate disabled */
   opacity: 0.6; /* Optional: make it look "grayed out" */
 }
+
+/* Prevent hover effects on disabled button */
+.save-button:disabled:hover {
+  background: #cccccc;; /* Keep the disabled background */
+  box-shadow: none; /* Ensure no shadow is applied */
+}
