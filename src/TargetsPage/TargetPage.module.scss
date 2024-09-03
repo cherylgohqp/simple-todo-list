@@ -33,7 +33,7 @@
 }
 
 .button {
-  background-color: #1c96a3;
+  background-color: #80669d;
   border: none;
   border-radius: 10px;
   min-height: 40px;
@@ -49,7 +49,7 @@
   cursor: pointer;
 }
 .button:hover {
-  background: linear-gradient(90deg, #23b4c3 0%, #19838c 100%);
+  background: linear-gradient(90deg, #a881af 0%, #80669d 100%);
   box-shadow: -4px 0px 12px rgba(0, 0, 0, 0.1), 4px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -77,12 +77,13 @@
 
 .modal_header_input:focus {
   outline: none;
-  border-color: #1c96a3;
-  box-shadow: 0 0 4px #23b4c3;
+  border-color: #80669d;
+  // border-width: 1px;
+  box-shadow: 0 0 4px #a881af;
 }
 
 .modal_header_input:hover {
-  border-color: #1c96a3;
+  border-color: #80669d;
 }
 
 .modal_value_input {
@@ -102,12 +103,12 @@
 
 .modal_value_input:focus {
   outline: none;
-  border-color: #1c96a3;
-  box-shadow: 0 0 4px #23b4c3;
+  border-color: #80669d;
+  box-shadow: 0 0 4px #a881af;
 }
 
 .modal_value_input:hover {
-  border-color: #1c96a3;
+  border-color: #80669d;
 }
 
 .wombat {

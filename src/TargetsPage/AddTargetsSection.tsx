@@ -197,7 +197,7 @@ export const AddTargetSection: FC<TargetPageProp> = ({
         onSave={handleSave}
         isDisabled={value === "" || header === "" || !!valueError || !!headerError} // double exclamation marks (!!) ensure that the condition evaluates to a boolean value (true if there's an error string, false otherwise).
       >
-        <p>Enter the task title:</p>
+        <p>Task Title</p>
         <input
           className={classes.modal_header_input}
           value={header}
@@ -206,7 +206,7 @@ export const AddTargetSection: FC<TargetPageProp> = ({
           onBlur={() => validateInputs("header")}
         />
         {headerError && <p className={classes.errorText}>{headerError}</p>}
-        <p>Enter the task description:</p>
+        <p>Task Description</p>
         <input
           className={classes.modal_value_input}
           value={value}

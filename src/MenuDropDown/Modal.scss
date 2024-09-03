@@ -91,7 +91,7 @@
   width: 92px;
   height: 48px;
   background-color: white;
-  color: #1c96a3;
+  color: #80669d;
   border: none;
   font-family: "Circular Std Book", sans-serif;
   font-size: 1rem;
@@ -102,11 +102,11 @@
 }
 
 .cancel-button:hover {
-  background-color: #ddf3f5;
+  background-color: #f4ddf5;
 }
 
 .save-button {
-  background-color: #1c96a3;
+  background-color: #645487;
   border: none;
   border-radius: 10px;
   min-height: 40px;
@@ -121,7 +121,7 @@
 }
 
 .save-button:hover {
-  background: linear-gradient(90deg, #23b4c3 0%, #19838c 100%);
+  background: linear-gradient(90deg, #f6a4b8 0%, #645487 100%);
   box-shadow: -4px 0px 12px rgba(0, 0, 0, 0.1), 4px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -134,6 +134,6 @@
 
 /* Prevent hover effects on disabled button */
 .save-button:disabled:hover {
-  background: #cccccc;; /* Keep the disabled background */
+  background: #cccccc; /* Keep the disabled background */
   box-shadow: none; /* Ensure no shadow is applied */
 }
