@@ -16,7 +16,7 @@ export const TargetPage = () => {
   return (
     <div className={classes.container}>
       <div className={classes.section}>
-        <h3 className={classes.targetTitle}>Project Targets</h3>
+        <h3 className={classes.targetTitle}>To-Do Tasks</h3>
         <AddTargetSection isEditBtnClicked={isEditBtnClicked} setIsEditBtnClicked={setIsEditBtnClicked} selectedCardHeader={selectedCardHeader} defaultCardValue={defaultCardValue} selectedCardIndex={selectedCardIndex}/>
 
       </div>

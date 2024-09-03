@@ -8,7 +8,7 @@ const navigate = useNavigate();
   return (
     <div>
     <header className={classes.header}>
-      <img src={logo} className={classes.header_logo} onClick={()=>navigate("/p4d")}/>
+      <img src={logo} className={classes.header_logo} onClick={()=>navigate("/")}/>
     </header>
     
     </div>
