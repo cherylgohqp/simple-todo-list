@@ -72,13 +72,12 @@ export const AddTargetSection: FC<TargetPageProp> = ({
     setIsModalOpen(false);
     setIsEditBtnClicked(false);
     setHeaderError("");
-    setValueError("")
+    setValueError("");
   };
-
 
   const openEditModal = () => {
     setHeader(selectedCardHeader); // Set the current header for editing
-    setValue(defaultCardValue);    // Set the current value for editing
+    setValue(defaultCardValue); // Set the current value for editing
     setIsModalOpen(true);
   };
 
@@ -92,7 +91,6 @@ export const AddTargetSection: FC<TargetPageProp> = ({
   };
 
   const handleSave = () => {
-
     const newCard: Card = { header, value };
     const updatedCards = [...cards, newCard];
 
@@ -103,9 +101,8 @@ export const AddTargetSection: FC<TargetPageProp> = ({
       .post(`${API_URL}/api/cards`, newCard)
       .then((response) => {
         console.log(response);
-   
-        closeModal();
 
+        closeModal();
       })
       .catch((error) => console.log(error));
     // return <TargetCards title={selectTargetType} value={value}/>
@@ -164,7 +161,7 @@ export const AddTargetSection: FC<TargetPageProp> = ({
   const validateInputs = (field: string) => {
     // let isValid = true;
     if (field === "header") {
-      if (header.trim() === "" ) {
+      if (header.trim() === "") {
         console.log("header", header);
         // console.log('edit header', editHeader)
         setHeaderError("Task title is required.");
@@ -174,7 +171,7 @@ export const AddTargetSection: FC<TargetPageProp> = ({
       }
     }
     if (field === "description") {
-      if (value.trim() === "" ) {
+      if (value.trim() === "") {
         setValueError("Task description is required.");
         // isValid = false;
       } else {
@@ -196,7 +193,9 @@ export const AddTargetSection: FC<TargetPageProp> = ({
         value={value}
         onClose={closeModal}
         onSave={handleSave}
-        isDisabled={value === "" || header === "" || !!valueError || !!headerError} // double exclamation marks (!!) ensure that the condition evaluates to a boolean value (true if there's an error string, false otherwise).
+        isDisabled={
+          value === "" || header === "" || !!valueError || !!headerError
+        } // double exclamation marks (!!) ensure that the condition evaluates to a boolean value (true if there's an error string, false otherwise).
       >
         <p>Task Title</p>
         <input
@@ -228,7 +227,9 @@ export const AddTargetSection: FC<TargetPageProp> = ({
         onClose={closeModal}
         onSave={updateCardHandler}
         isDisabled={
-          (value === defaultCardValue && header === selectedCardHeader)||!!headerError|| !!valueError
+          (value === defaultCardValue && header === selectedCardHeader) ||
+          !!headerError ||
+          !!valueError
         }
       >
         <p>Edit the task title:</p>
