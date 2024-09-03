@@ -1,4 +1,3 @@
-import { FC } from "react";
 import classes from "./TargetsLandingPage.module.scss";
 import { ReactComponent as TargetFeaturedIcon } from "./targetFeaturedIcon.svg";
 
@@ -6,9 +5,8 @@ type Props = {
   title?: string;
 };
 
-export const TargetsLandingPage: FC<Props> = () => {
+export const TargetsLandingPage = ({ title }: Props) => {
   return (
-    // <div>
       <div className={classes.center}>
         <div className={classes.icon}>
           <TargetFeaturedIcon />
@@ -20,6 +18,5 @@ export const TargetsLandingPage: FC<Props> = () => {
           </p>
         </div>
       </div>
-    // </div>
   );
 };

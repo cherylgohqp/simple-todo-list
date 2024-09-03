@@ -1,4 +1,4 @@
-import React, { useEffect, useState, FC } from "react";
+import { useEffect, useState, FC } from "react";
 import axios from 'axios';
 import styles from "./TargetCard.module.scss";
 import { ReactComponent as DeleteIcon } from "./delete.svg";
@@ -24,8 +24,6 @@ const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty, setIsEditBtnClicked, s
     // Fetch the data from the server using an API call
     axios.get(`${API_URL}/api/cards`)
       .then(response => setCards(response.data[0].cards))
-        // console.log("response", response.data[0].cards))
-        // setCards(response.data.cards))
       .catch(error => console.log(error));
     }, [cards]);
     

@@ -1,8 +1,5 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useState } from "react";
 import "./Modal.scss";
-// import { ReactComponent as Cross } from "./caret_down.svg";
-import TargetCards from "../Cards/TargetCards";
-import { isDisabled } from "@testing-library/user-event/dist/utils";
 
 interface ModalProps {
   title: string;
@@ -13,13 +10,10 @@ interface ModalProps {
   isDisabled?:boolean;
 }
 
-const Modal: React.FC<ModalProps> = ({ title, onClose, children, onSave, value, isDisabled}) => {
+const Modal = ({ title, onClose, children, onSave, value, isDisabled}:ModalProps) => {
   const [isOpen, setIsOpen] = useState(true);
   const [header, setHeader] = useState(title);
   const [cardValue, setValue] = useState(value);
-  // const [cards, setCards] = useState<Card[]>([]);
-  // Determine if changes are made
-  // const hasChanges = header !== title || cardValue !== value;
   const closeModal = () => {
     setIsOpen(false);
     onClose();

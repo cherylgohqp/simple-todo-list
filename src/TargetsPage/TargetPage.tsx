@@ -24,7 +24,6 @@ export const TargetPage = () => {
           {/* if there is no data in the jsonfile then render the default landing page */}
           {isJsonEmpty && <TargetsLandingPage />} 
           <TargetCards setIsJsonEmpty={setIsJsonEmpty} setIsEditBtnClicked={setIsEditBtnClicked} setSelectedCardHeader={setSelectedCardHeader} setDefaultCardValue={setDefaultCardValue} setSelectedCardIndex={setSelectedCardIndex}/>
-          {/* {isJsonEmpty ? <TargetsLandingPage /> : <TargetCards setIsJsonEmpty={setIsJsonEmpty}/>} */}
       </div>
       <div className={classes.wombat}>
       <a href="https://www.flaticon.com/free-icons/wombat" title="wombat icons">Wombat icons created by Freepik - Flaticon</a>
