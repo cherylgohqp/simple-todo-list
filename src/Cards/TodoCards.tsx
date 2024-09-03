@@ -1,6 +1,6 @@
-import { useEffect, useState, FC } from "react";
+import { useEffect, useState} from "react";
 import axios from 'axios';
-import styles from "./TargetCard.module.scss";
+import styles from "./TodoCard.module.scss";
 import { ReactComponent as DeleteIcon } from "./delete.svg";
 import { ReactComponent as EditIcon } from "./edit.svg";
 
@@ -18,7 +18,7 @@ interface TargetPageProp{
 }
 const API_URL = "https://target-test-api.vercel.app"; //prev: http://localhost:5000/
 
-const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty, setIsEditBtnClicked, setSelectedCardHeader, setDefaultCardValue, setSelectedCardIndex}) =>{
+const TodoCards = ({setIsJsonEmpty, setIsEditBtnClicked, setSelectedCardHeader, setDefaultCardValue, setSelectedCardIndex}:TargetPageProp) =>{
   const [cards, setCards] = useState<Card[]>([]);
     useEffect(() => {
     // Fetch the data from the server using an API call
@@ -71,4 +71,4 @@ const TargetCards: FC<TargetPageProp> = ({setIsJsonEmpty, setIsEditBtnClicked, s
     </div>);
 
 };
-export default TargetCards;
+export default TodoCards;

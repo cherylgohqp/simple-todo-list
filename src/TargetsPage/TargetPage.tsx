@@ -2,7 +2,7 @@
 import classes from "./TargetPage.module.scss";
 import { TargetsLandingPage } from "../TargetsLandingPage/TargetsLandingPage";
 import { AddTargetSection } from "./AddTargetsSection";
-import TargetCards from "../Cards/TargetCards";
+import TodoCards from "../Cards/TodoCards";
 import { useState  } from "react";
 
 export const TargetPage = () => {
@@ -23,7 +23,7 @@ export const TargetPage = () => {
       <div>
           {/* if there is no data in the jsonfile then render the default landing page */}
           {isJsonEmpty && <TargetsLandingPage />} 
-          <TargetCards setIsJsonEmpty={setIsJsonEmpty} setIsEditBtnClicked={setIsEditBtnClicked} setSelectedCardHeader={setSelectedCardHeader} setDefaultCardValue={setDefaultCardValue} setSelectedCardIndex={setSelectedCardIndex}/>
+          <TodoCards setIsJsonEmpty={setIsJsonEmpty} setIsEditBtnClicked={setIsEditBtnClicked} setSelectedCardHeader={setSelectedCardHeader} setDefaultCardValue={setDefaultCardValue} setSelectedCardIndex={setSelectedCardIndex}/>
       </div>
       <div className={classes.wombat}>
       <a href="https://www.flaticon.com/free-icons/wombat" title="wombat icons">Wombat icons created by Freepik - Flaticon</a>
