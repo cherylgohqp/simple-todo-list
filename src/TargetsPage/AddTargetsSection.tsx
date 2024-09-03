@@ -1,24 +1,15 @@
-import React, { useRef, useState, FC, useEffect, createContext } from "react";
+import React, { useState, FC, useEffect } from "react";
 import classes from "./TargetPage.module.scss";
-import { useNavigate } from "react-router-dom";
-// import caretDownIcon from "./caret_down.svg";
-import { ReactComponent as CaretDownIcon } from "./caret_down.svg";
 import { ReactComponent as PlusIcon } from "./plus.svg";
-import { DropDown } from "../MenuDropDown/DropDown";
-import options from "../MenuDropDown/options";
 import Modal from "../MenuDropDown/Modal";
 import "../MenuDropDown/Modal.scss";
 import axios from "axios";
-// import TargetCards from "../Cards/TargetCards";
-
-//REFERENCING src\pages\target\components\AddTargetSection.tsx FROM ENVISION REPO
 
 interface Card {
   header: any;
   value: string;
 }
 interface TargetPageProp {
-  // setModalState:Function;
   isEditBtnClicked: boolean;
   selectedCardHeader: string;
   defaultCardValue: string;
@@ -26,7 +17,6 @@ interface TargetPageProp {
   selectedCardIndex: string;
 }
 
-// export const AddTargetSection  = () => {
 export const AddTargetSection: FC<TargetPageProp> = ({
   isEditBtnClicked,
   setIsEditBtnClicked,
@@ -34,7 +24,6 @@ export const AddTargetSection: FC<TargetPageProp> = ({
   defaultCardValue,
   selectedCardIndex,
 }) => {
-  // const navigate = useNavigate();
   const API_URL = "https://target-test-api.vercel.app"; //prev: http://localhost:5000/
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
   const [selectTargetType, setselectTargetType] = useState<string>("");
@@ -42,19 +31,10 @@ export const AddTargetSection: FC<TargetPageProp> = ({
   const [header, setHeader] = useState<string>("");
   const [value, setValue] = useState<string>("");
   const [cards, setCards] = useState<Card[]>([]);
-  // const [editHeader, setEditHeader] = useState<string>(selectedCardHeader);
-  // const [editValue, setEditValue] = useState<string>(defaultCardValue);
+
   // Error states
   const [headerError, setHeaderError] = useState<string>("");
   const [valueError, setValueError] = useState<string>("");
-
-  // useEffect(() => {
-  //   // Update the state with the selected card values when editing is initiated
-  //   if (isEditBtnClicked) {
-  //     setEditHeader(selectedCardHeader);
-  //     setEditValue(defaultCardValue);
-  //   }
-  // }, [isEditBtnClicked, selectedCardHeader, defaultCardValue]);
 
   useEffect(() => {
     if (isEditBtnClicked) {
@@ -105,21 +85,19 @@ export const AddTargetSection: FC<TargetPageProp> = ({
         closeModal();
       })
       .catch((error) => console.log(error));
-    // return <TargetCards title={selectTargetType} value={value}/>
   };
 
   const updateCardHandler = () => {
-    // console.log("edited values", editHeader, editValue);
 
     // Send a PUT request to the server with the ID of the card to be updated and the new title and description
     axios
       .put(`${API_URL}/api/cards/${parseInt(selectedCardIndex)}`, {
-        header: header, // Use edited state
-        value: value, // Use edited state
+        header: header,
+        value: value, 
       })
       .then((response) => {
-        // If the card is updated successfully, log a success message
-        console.log(response.data);
+        // If the card is updated successfully, log a success message (to do)
+        console.log("Card updated successfully:", response.data);
         closeModal();
       })
       .catch((error) => {
@@ -128,44 +106,30 @@ export const AddTargetSection: FC<TargetPageProp> = ({
       });
   };
 
-  /**
-   * Toggle the drop down menu
-   */
-  const toggleDropDown = () => {
-    setShowDropDown(!showDropDown);
-  };
+  //commented out dropdown button handlers
+  // /**
+  //  * Toggle the drop down menu
+  //  */
+  // const toggleDropDown = () => {
+  //   setShowDropDown(!showDropDown);
+  // };
 
-  /**
-   * Hide the drop down menu if click occurs
-   * outside of the drop-down element.
-   *
-   * @param event  The mouse event
-   */
-  const dismissHandler = (event: React.FocusEvent<HTMLButtonElement>): void => {
-    if (event.currentTarget === event.target) {
-      setShowDropDown(false);
-    }
-  };
-
-  /**
-   * Callback function to consume the
-   * targetType name from the child component
-   *
-   * @param targetType  The selected targetType
-   */
-  const targetTypeSelection = (targetType: string): void => {
-    setselectTargetType(targetType);
-    openModal();
-  };
+  // /**
+  //  * Hide the drop down menu if click occurs
+  //  * outside of the drop-down element.
+  //  *
+  //  * @param event  The mouse event
+  //  */
+  // const dismissHandler = (event: React.FocusEvent<HTMLButtonElement>): void => {
+  //   if (event.currentTarget === event.target) {
+  //     setShowDropDown(false);
+  //   }
+  // };
 
   const validateInputs = (field: string) => {
-    // let isValid = true;
     if (field === "header") {
       if (header.trim() === "") {
-        console.log("header", header);
-        // console.log('edit header', editHeader)
         setHeaderError("Task title is required.");
-        // isValid = false;
       } else {
         setHeaderError("");
       }
@@ -173,18 +137,11 @@ export const AddTargetSection: FC<TargetPageProp> = ({
     if (field === "description") {
       if (value.trim() === "") {
         setValueError("Task description is required.");
-        // isValid = false;
       } else {
         setValueError("");
       }
     }
-
-    // return isValid;
   };
-
-  // const isButtonDisabled =
-  //   (editValue === defaultCardValue && editHeader === selectedCardHeader) ||
-  //   (value === "" && header === "");
 
   const modalRendered = () => {
     return (
@@ -257,15 +214,13 @@ export const AddTargetSection: FC<TargetPageProp> = ({
 
   return (
     <div>
-      <div>
         <div className={classes["button-spacing"]}>
-          {/* <button className={classes.button} onClick={()=> navigate("/buttonClicked")}> */}
           <button
             className={classes.button}
             onClick={() => openModal()}
-            onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
-              dismissHandler(e)
-            }
+            // onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
+            //   dismissHandler(e)
+            // } //this is for the dropdown button previously
           >
             Add New Task
             {/* <span className={classes.caretDownIcon}> </span> */}
@@ -278,11 +233,10 @@ export const AddTargetSection: FC<TargetPageProp> = ({
                 toggleDropDown={(): void => toggleDropDown()}
                 targetTypeSelection={targetTypeSelection}
               />
-            )} */}
+            )} hide dropdown*/} 
           </button>
           {isModalOpen && <div>{modalRendered()}</div>}
           {isEditBtnClicked && <div>{editModalRendered()}</div>}
-        </div>
       </div>
     </div>
   );

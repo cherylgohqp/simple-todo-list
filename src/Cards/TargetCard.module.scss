@@ -7,14 +7,11 @@
 .card-section {
   //area where all cards are rendered and displayed
   display: inline-flex;
-  // justify-content: space-between;
   flex-wrap: wrap;
   column-gap: 16px;
 }
 
 .card-content-wrapper {
-  // height: 100%;
-  // padding: 1rem;
   display: flex;
   flex-direction: column;
   border: #e1e1e1 solid 1px;
@@ -49,7 +46,6 @@
     .editIcon {
       cursor: pointer;
       position: relative;
-      // justify-content: center;
       background-color: transparent;
       border: none;
       width: 16px;
@@ -77,6 +73,5 @@
   height: 100%;
   padding-left: 16px;
   margin-top: 24px;
-// white-space: pre-wrap; // This will respect newlines and spaces
-  
+  // white-space: pre-wrap; // This will respect newlines and spaces
 }
