@@ -71,7 +71,8 @@
   line-height: 2.5rem;
   letter-spacing: -0.03125rem;
   height: 100%;
-  padding-left: 16px;
+  padding: 0 16px;
   margin-top: 24px;
+  overflow-x: auto;
   // white-space: pre-wrap; // This will respect newlines and spaces
 }
