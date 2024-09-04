@@ -10,6 +10,12 @@
   width: 100%;
   margin: 0;
   padding: 2rem;
+
+  background-image: url("../wombat3.png"); // Adjust the path as necessary
+  background-size: contain; /* Adjusts the image to cover the entire container */
+  background-position: center; /* Centers the image */
+  background-repeat: repeat; /* Prevents the image from repeating */
+  box-shadow: inset 0 0 0 2000px rgba(224, 187, 228,0.588);
 }
 
 .targetTitle {
