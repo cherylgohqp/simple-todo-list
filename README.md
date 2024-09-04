@@ -47,26 +47,25 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### CHERYL
 
-NOTE: my api server is running on port 5000
+NOTE: 
+Before refactoring: 
+Originally, my api server is running on port 5000
 -> cd to src folder first then
 -> node server.js
 
 at the same time run ' yarn start ' to run my local repo
 
+After refactoring: my api server is now hosted on vercel (https://target-test-api.vercel.app/) and the data base collection (cards-data) is on MongoDb
+
 ### Code Structure:
 
-TargetPage is the one that renders the cards, landing page and the modals (in addtargetsection file)
-=> handles the passing of the props for editing the values of the card
+TodoPage => renders the cards and landing page 
+AddTodoSection 
+=> renders the modals which handles the passing of the props for editing the values of the card
+=> also handles the PUT and POST of the card values to the API server and the Mongodb collection for my cards data
 
-addTargetSection
-=> contains the 'add target' button
-=> handles the dropdown menu and which modal opens depending on which dropdown menu option was selected
-=> post the cards data to the api and json file when user enters and save the value added to the modal
-=> handles the editing of the cards -> triggers the rendering of the edit modal and also updating the values of the cards when edited as well as updating the data in the json server
-
-targetCard
+TodoCard
 => handles the delete of the cards
-=> calls the get func of api to read the data in the json and see which cards to render on the page
+=> calls the GET func of api to read the data in the Mongodb collection to render on current cards onto the page
 => handles the edit button icon on the cards
 
-server.js => serverside of the json api using axios

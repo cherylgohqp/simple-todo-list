@@ -20,7 +20,6 @@ const Modal = ({ title, onClose, children, onSave, value, isDisabled}:ModalProps
   };
 
   const handleSave = () => {
-    console.log(`clicked on ${title} and ${value}`)
     onSave(header,cardValue); //this helps to pass the header and card value to addtargetssection handlesave function, for cards data to be saved
     setHeader('');
     setValue('');

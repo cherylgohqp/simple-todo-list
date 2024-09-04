@@ -3,7 +3,7 @@ import classes from "./TodoPage.module.scss";
 import { ReactComponent as PlusIcon } from "./plus.svg";
 import Modal from "../MenuDropDown/Modal";
 import "../MenuDropDown/Modal.scss";
-import axios from "axios";
+import axios, { CancelTokenSource } from "axios";
 
 interface Card {
   header: any;
@@ -17,14 +17,18 @@ interface TargetPageProp {
   selectedCardIndex: string;
 }
 
-export const AddTodoSection: FC<TargetPageProp> = ({
+export const AddTodoSection = ({
   isEditBtnClicked,
   setIsEditBtnClicked,
   selectedCardHeader,
   defaultCardValue,
   selectedCardIndex,
-}) => {
+}: TargetPageProp) => {
   const API_URL = "https://target-test-api.vercel.app"; //prev: http://localhost:5000/
+   
+  // Axios cancel token source
+  let cancelTokenSource: CancelTokenSource;
+
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
   const [selectTargetType, setselectTargetType] = useState<string>("");
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -40,6 +44,12 @@ export const AddTodoSection: FC<TargetPageProp> = ({
     if (isEditBtnClicked) {
       openEditModal();
     }
+    // Cleanup function to cancel any pending API requests when component unmounts
+    return () => {
+      if (cancelTokenSource) {
+        cancelTokenSource.cancel("Request canceled due to component unmounting");
+      }
+    };
   }, [isEditBtnClicked]);
 
   const openModal = () => {
@@ -75,6 +85,8 @@ export const AddTodoSection: FC<TargetPageProp> = ({
     const updatedCards = [...cards, newCard];
 
     setCards(updatedCards);
+    // Create a cancel token
+    cancelTokenSource = axios.CancelToken.source();
 
     // Send a POST request to the server to update the JSON file
     axios
@@ -84,16 +96,27 @@ export const AddTodoSection: FC<TargetPageProp> = ({
 
         closeModal();
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        if (axios.isCancel(error)) {
+          console.log("Request canceled:", error.message);
+        } else {
+          console.log(error);
+        }
+      });
   };
 
   const updateCardHandler = () => {
+    // Create a cancel token
+    cancelTokenSource = axios.CancelToken.source();
 
     // Send a PUT request to the server with the ID of the card to be updated and the new title and description
     axios
       .put(`${API_URL}/api/cards/${parseInt(selectedCardIndex)}`, {
         header: header,
         value: value, 
+      },
+      {
+        cancelToken: cancelTokenSource.token,
       })
       .then((response) => {
         // If the card is updated successfully, log a success message (to do)
@@ -101,8 +124,12 @@ export const AddTodoSection: FC<TargetPageProp> = ({
         closeModal();
       })
       .catch((error) => {
-        // If the card is not found or there's an error, log an error message
-        console.log(error.message);
+        if (axios.isCancel(error)) {
+          console.log("Request canceled:", error.message);
+        } else {
+          //if card is not found, log error message
+          console.log(error.message);
+        }
       });
   };
 

@@ -16,8 +16,8 @@
   flex-direction: column;
   border: #e1e1e1 solid 1px;
   border-radius: 8px;
-  min-width: 300px;
-  max-width: 476px;
+  min-width: 280px;
+  max-width: 480px;
   min-height: 146px;
   max-height: 300px;
   margin-bottom: 24px;
@@ -43,7 +43,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    // padding-left: 48px;
 
     .editIcon {
       cursor: pointer;

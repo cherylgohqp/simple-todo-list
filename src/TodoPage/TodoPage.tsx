@@ -20,7 +20,7 @@ export const TodoPage = () => {
         <AddTodoSection isEditBtnClicked={isEditBtnClicked} setIsEditBtnClicked={setIsEditBtnClicked} selectedCardHeader={selectedCardHeader} defaultCardValue={defaultCardValue} selectedCardIndex={selectedCardIndex}/>
 
       </div>
-      <div>
+      <div className={classes.cardSection}>
           {/* if there is no data in the jsonfile then render the default landing page */}
           {isJsonEmpty && <TodoLandingPage />} 
           <TodoCards setIsJsonEmpty={setIsJsonEmpty} setIsEditBtnClicked={setIsEditBtnClicked} setSelectedCardHeader={setSelectedCardHeader} setDefaultCardValue={setDefaultCardValue} setSelectedCardIndex={setSelectedCardIndex}/>
