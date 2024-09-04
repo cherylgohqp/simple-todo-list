@@ -1,7 +1,7 @@
 
 import classes from "./TodoPage.module.scss";
 import { TodoLandingPage } from "../TodoLandingPage/TodoLandingPage";
-import { AddTargetSection } from "./AddTargetsSection";
+import { AddTodoSection } from "./AddTodoSection";
 import TodoCards from "../Cards/TodoCards";
 import { useState  } from "react";
 
@@ -17,7 +17,7 @@ export const TodoPage = () => {
     <div className={classes.container}>
       <div className={classes.section}>
         <h3 className={classes.targetTitle}>To-Do Tasks</h3>
-        <AddTargetSection isEditBtnClicked={isEditBtnClicked} setIsEditBtnClicked={setIsEditBtnClicked} selectedCardHeader={selectedCardHeader} defaultCardValue={defaultCardValue} selectedCardIndex={selectedCardIndex}/>
+        <AddTodoSection isEditBtnClicked={isEditBtnClicked} setIsEditBtnClicked={setIsEditBtnClicked} selectedCardHeader={selectedCardHeader} defaultCardValue={defaultCardValue} selectedCardIndex={selectedCardIndex}/>
 
       </div>
       <div>

@@ -17,7 +17,7 @@ interface TargetPageProp {
   selectedCardIndex: string;
 }
 
-export const AddTargetSection: FC<TargetPageProp> = ({
+export const AddTodoSection: FC<TargetPageProp> = ({
   isEditBtnClicked,
   setIsEditBtnClicked,
   selectedCardHeader,
@@ -161,6 +161,7 @@ export const AddTargetSection: FC<TargetPageProp> = ({
           onChange={handleHeaderChange}
           placeholder="Task Title"
           onBlur={() => validateInputs("header")}
+          maxLength={28}
         />
         {headerError && <p className={classes.errorText}>{headerError}</p>}
         <p>Task Description</p>
@@ -170,6 +171,7 @@ export const AddTargetSection: FC<TargetPageProp> = ({
           onChange={handleValueChange}
           placeholder="Task Description"
           onBlur={() => validateInputs("description")}
+          maxLength={50}
         />
         {valueError && <p className={classes.errorText}>{valueError}</p>}
       </Modal>
@@ -196,6 +198,7 @@ export const AddTargetSection: FC<TargetPageProp> = ({
           onChange={handleHeaderChange} // Update state correctly
           placeholder="Task Title"
           onBlur={() => validateInputs("header")}
+          maxLength={28}
         />
         {headerError && <p className={classes.errorText}>{headerError}</p>}
 
@@ -206,6 +209,7 @@ export const AddTargetSection: FC<TargetPageProp> = ({
           onChange={handleValueChange} // Update state correctly
           placeholder="Task Description"
           onBlur={() => validateInputs("description")}
+          maxLength={50}
         />
         {valueError && <p className={classes.errorText}>{valueError}</p>}
       </Modal>
