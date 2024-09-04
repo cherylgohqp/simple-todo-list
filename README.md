@@ -69,3 +69,6 @@ TodoCard
 => calls the GET func of api to read the data in the Mongodb collection to render on current cards onto the page
 => handles the edit button icon on the cards
 
+TodoLandingPage
+=> landing page when there are no cards
+
