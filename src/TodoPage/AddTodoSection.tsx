@@ -180,7 +180,8 @@ export const AddTodoSection = ({
         isDisabled={
           value === "" || header === "" || !!valueError || !!headerError
         } // double exclamation marks (!!) ensure that the condition evaluates to a boolean value (true if there's an error string, false otherwise).
-      >
+      children={
+        <>
         <p>Task Title</p>
         <input
           className={classes.modal_header_input}
@@ -201,7 +202,10 @@ export const AddTodoSection = ({
           maxLength={50}
         />
         {valueError && <p className={classes.errorText}>{valueError}</p>}
-      </Modal>
+        </>
+      }
+      />
+      
     );
   };
 
@@ -217,7 +221,8 @@ export const AddTodoSection = ({
           !!headerError ||
           !!valueError
         }
-      >
+      children={
+        <>
         <p>Edit the task title:</p>
         <input
           className={classes.modal_header_input}
@@ -239,7 +244,10 @@ export const AddTodoSection = ({
           maxLength={50}
         />
         {valueError && <p className={classes.errorText}>{valueError}</p>}
-      </Modal>
+        </>
+      }
+      />
+      
     );
   };
 
