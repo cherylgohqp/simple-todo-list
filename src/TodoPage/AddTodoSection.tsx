@@ -30,7 +30,6 @@ export const AddTodoSection = ({
   let cancelTokenSource: CancelTokenSource;
 
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
-  const [selectTargetType, setselectTargetType] = useState<string>("");
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [header, setHeader] = useState<string>("");
   const [value, setValue] = useState<string>("");
