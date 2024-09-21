@@ -91,7 +91,6 @@ export const AddTodoSection = ({
     axios
       .post(`${API_URL}/api/cards`, newCard)
       .then((response) => {
-        console.log(response);
 
         closeModal();
       })
